@@ -49,7 +49,7 @@ Nhóm thuật toán này tìm kiếm mà không sử dụng thông tin về đí
 * **Áp dụng trên 8 ô chữ:** Tìm được lời giải ngắn nhất, nhưng yêu cầu bộ nhớ rất lớn với các bài toán sâu.
 
 *Xem BFS hoạt động trên 8 ô chữ:*
-![Minh họa GIF BFS 8-Puzzle](path/to/your/bfs_animation.gif)
+![Minh họa GIF BFS 8-Puzzle](GIF/BFS.gif)
 
 #### **Tìm kiếm theo chiều sâu (DFS)**
 
@@ -62,7 +62,7 @@ Nhóm thuật toán này tìm kiếm mà không sử dụng thông tin về đí
 * **Áp dụng trên 8 ô chữ:** Tiết kiệm bộ nhớ hơn BFS, nhưng lời giải thường không tối ưu và có thể mất nhiều thời gian hơn.
 
 *Xem DFS hoạt động trên 8 ô chữ:*
-![Minh họa GIF DFS 8-Puzzle](path/to/your/dfs_animation.gif)
+![Minh họa GIF DFS 8-Puzzle](GIF/DFS.gif)
 
 #### **Tìm kiếm chi phí đồng nhất (UCS)**
 
@@ -74,7 +74,7 @@ Nhóm thuật toán này tìm kiếm mà không sử dụng thông tin về đí
 * **Áp dụng trên 8 ô chữ:** Đảm bảo lời giải tối ưu chi phí (tương tự BFS), nhưng vẫn tốn bộ nhớ.
 
 *Xem UCS hoạt động trên 8 ô chữ:*
-![Minh họa GIF UCS 8-Puzzle](path/to/your/ucs_animation.gif)
+![Minh họa GIF UCS 8-Puzzle](GIF/UCS.gif)
 
 #### **Tìm kiếm theo chiều sâu lặp sâu dần (IDS)**
 
@@ -87,7 +87,7 @@ Nhóm thuật toán này tìm kiếm mà không sử dụng thông tin về đí
 * **Áp dụng trên 8 ô chữ:** Cân bằng giữa tính tối ưu (như BFS) và hiệu quả bộ nhớ (như DFS), thường là lựa chọn tốt nhất trong nhóm không có thông tin cho 8 ô chữ.
 
 *Xem IDS hoạt động trên 8 ô chữ:*
-![Minh họa GIF IDS 8-Puzzle](path/to/your/ids_animation.gif)
+![Minh họa GIF IDS 8-Puzzle](GIF/IDS.gif)
 
 ---
 
@@ -113,7 +113,7 @@ Nhóm này sử dụng **Hàm Heuristic ($h(n)$)** - ước lượng chi phí t�
 * **Áp dụng trên 8 ô chữ:** Tìm kiếm nhanh chóng theo "trực giác" của heuristic, nhưng thường tìm thấy lời giải không tối ưu.
 
 *Xem Greedy Search hoạt động trên 8 ô chữ:*
-![Minh họa GIF Greedy Search 8-Puzzle](path/to/your/greedy_animation.gif)
+![Minh họa GIF Greedy Search 8-Puzzle](GIF/Greedy.gif)
 
 #### **Thuật toán A* (A* Search)**
 
@@ -125,7 +125,7 @@ Nhóm này sử dụng **Hàm Heuristic ($h(n)$)** - ước lượng chi phí t�
 * **Áp dụng trên 8 ô chữ:** Là thuật toán hiệu quả nhất trong nhóm tìm kiếm trạng thái. Với heuristic **Manhattan Distance ($h_2$)**, A* tìm được lời giải tối ưu rất nhanh chóng.
 
 *Xem A* hoạt động trên 8 ô chữ:*
-![Minh họa GIF A* Search 8-Puzzle](path/to/your/a_star_animation.gif)
+![Minh họa GIF A* Search 8-Puzzle](GIF/AStar.gif)
 
 #### **Tìm kiếm theo chiều sâu lặp sâu dần với A* (IDA*)**
 
@@ -138,7 +138,7 @@ Nhóm này sử dụng **Hàm Heuristic ($h(n)$)** - ước lượng chi phí t�
 * **Áp dụng trên 8 ô chữ:** Lựa chọn tối ưu khi bài toán lớn, đòi hỏi tính tối ưu của A* nhưng bộ nhớ là giới hạn.
 
 *Xem IDA* hoạt động trên 8 ô chữ:*
-![Minh họa GIF IDA* Search 8-Puzzle](path/to/your/ida_star_animation.gif)
+![Minh họa GIF IDA* Search 8-Puzzle](GIF/IDAStar.gif)
 
 ---
 
@@ -149,50 +149,253 @@ Nhóm này sử dụng **Hàm Heuristic ($h(n)$)** - ước lượng chi phí t�
 
 ---
 
-### ⛰️ 2.3. Các Thuật toán Tìm kiếm Cục bộ (Local Search)
+### ⛰️ 2.3. Các Thuật toán Tìm kiếm Cục bộ (Local Search Algorithms)
 
-Tìm kiếm cục bộ hoạt động bằng cách di chuyển giữa các trạng thái lân cận trong không gian cấu hình để tìm trạng thái tốt nhất theo một hàm mục tiêu. Chúng không lưu lại đường đi và thường được dùng cho các bài toán tối ưu hóa, không phải tìm đường đi như 8 ô chữ.
+Nhóm thuật toán này hoạt động trên một hoặc một vài trạng thái (điểm) trong không gian cấu hình và cố gắng di chuyển đến các trạng thái lân cận để tìm ra trạng thái tối ưu (cục bộ hoặc toàn cục) dựa trên một hàm mục tiêu. Chúng không lưu giữ lịch sử tìm kiếm hay đường đi.
 
-* **Một số thuật toán:** **Hill Climbing** (Simple, Steepest, Stochastic), **Simulated Annealing**, **Local Beam Search**, **Genetic Algorithm**.
-* **Đặc điểm:** Rất hiệu quả về bộ nhớ, nhưng có nguy cơ mắc kẹt ở tối ưu cục bộ (trừ các biến thể như Simulated Annealing).
+Đối với các bài toán tìm kiếm cục bộ, chúng ta xét:
+* **Không gian cấu hình:** Tập hợp các giải pháp hoặc cấu hình tiềm năng.
+* **Hàm mục tiêu (Objective Function):** Hàm đánh giá chất lượng của một cấu hình, cần tối thiểu hóa hoặc tối đa hóa.
+* **Hàng xóm (Neighbors):** Các cấu hình có thể đạt được từ trạng thái hiện tại thông qua một thay đổi nhỏ.
+* **Lời giải:** Trạng thái (cấu hình) có giá trị hàm mục tiêu tối ưu (hoặc gần tối ưu) tìm được.
 
-*Minh họa chung về ý tưởng Tìm kiếm Cục bộ:*
-![Minh họa Tìm kiếm Cục bộ](path/to/your/local_search_illustration.png)
+Bài toán 8 ô chữ có thể được xem từ góc độ này (tìm cấu hình có heuristic = 0), nhưng các thuật toán sau đây thường không được dùng để tìm *chuỗi bước đi* giải 8 ô chữ.
+
+#### **Simple Hill Climbing (Leo đồi đơn giản)**
+
+* **Mô tả:** Bắt đầu từ một điểm ngẫu nhiên, di chuyển đến **bất kỳ** điểm lân cận nào tốt hơn điểm hiện tại.
+* **Cơ chế hoạt động:** Tại mỗi bước, xem xét các lân cận và di chuyển đến lân cận đầu tiên tìm thấy có giá trị hàm mục tiêu tốt hơn. Nếu không có lân cận nào tốt hơn, dừng lại.
+* **Đặc điểm:** Đơn giản, dễ cài đặt, nhưng có nguy cơ **mắc kẹt cao ở tối ưu cục bộ**, cao nguyên (plateau) hoặc sườn dốc (ridge).
+* **Ứng dụng điển hình:** Các bài toán tối ưu hóa đơn giản.
+
+*Minh họa hoạt động của Simple Hill Climbing:*
+![Minh họa GIF Simple Hill Climbing](GIF/Simple.gif)
+> Gợi ý nội dung GIF: Thể hiện một điểm (trạng thái) di chuyển trên đồ thị hàm mục tiêu 2D, luôn leo lên (hoặc xuống nếu là tối thiểu hóa) cho đến khi không thể đi tiếp. Làm nổi bật điểm bắt đầu và điểm dừng (có thể là tối ưu cục bộ).
+
+#### **Steepest Ascent Hill Climbing (Leo đồi dốc nhất)**
+
+* **Mô tả:** Tương tự Simple Hill Climbing, nhưng di chuyển đến điểm lân cận **tốt nhất** trong tất cả các lân cận.
+* **Cơ chế hoạt động:** Tại mỗi bước, xem xét **tất cả** các lân cận và chọn lân cận có giá trị hàm mục tiêu tốt nhất. Nếu lân cận tốt nhất không tốt hơn điểm hiện tại, dừng lại.
+* **Đặc điểm:** Thường hội tụ nhanh hơn Simple Hill Climbing, nhưng vẫn có nguy cơ **mắc kẹt ở tối ưu cục bộ**.
+* **Ứng dụng điển hình:** Các bài toán tối ưu hóa đơn giản, cần hội tụ nhanh.
+
+*Minh họa hoạt động của Steepest Ascent Hill Climbing:*
+![Minh họa GIF Steepest Ascent Hill Climbing](GIF/Steepest.gif)
+> Gợi ý nội dung GIF: Thể hiện một điểm di chuyển trên đồ thị hàm mục tiêu 2D, luôn chọn hướng có độ dốc lớn nhất để leo lên. Làm nổi bật điểm bắt đầu và điểm dừng (có thể là tối ưu cục bộ).
+
+#### **Stochastic Hill Climbing (Leo đồi ngẫu nhiên)**
+
+* **Mô tả:** Chọn ngẫu nhiên một điểm lân cận từ tập hợp các điểm lân cận **tốt hơn** điểm hiện tại để di chuyển.
+* **Cơ chế hoạt động:** Thay vì chọn lân cận đầu tiên hoặc lân cận tốt nhất, thuật toán chọn ngẫu nhiên trong số các lân cận mang lại cải thiện.
+* **Đặc điểm:** Có khả năng **thoát khỏi một số tối ưu cục bộ "nông"** hơn so với các biến thể deterministic, nhưng vẫn có thể mắc kẹt.
+* **Ứng dụng điển hình:** Khi cần sự ngẫu nhiên để khám phá thêm một chút.
+
+*Minh họa hoạt động của Stochastic Hill Climbing:*
+![Minh họa GIF Stochastic Hill Climbing](GIF/Stochastic.gif)
+> Gợi ý nội dung GIF: Thể hiện điểm di chuyển, đôi khi không đi theo hướng dốc nhất mà chọn một hướng tốt hơn ngẫu nhiên.
+
+#### **Simulated Annealing (Tôi luyện mô phỏng)**
+
+* **Mô tả:** Lấy cảm hứng từ quá trình tôi luyện kim loại, cho phép di chuyển đến các trạng thái **xấu hơn** một cách có xác suất để thoát khỏi tối ưu cục bộ. Xác suất này giảm dần theo "nhiệt độ" (tham số điều khiển).
+* **Cơ chế hoạt động:** Tại mỗi bước, chọn một lân cận ngẫu nhiên. Nếu tốt hơn, chấp nhận. Nếu xấu hơn, chấp nhận với xác suất phụ thuộc vào mức độ xấu hơn và nhiệt độ hiện tại. Nhiệt độ giảm dần theo thời gian theo một lịch trình được định nghĩa trước.
+* **Đặc điểm:** Có khả năng tìm được **tối ưu toàn cục** nếu lịch nhiệt độ phù hợp, nhưng việc chọn lịch nhiệt độ rất quan trọng và có thể tốn thời gian.
+* **Ứng dụng điển hình:** Các bài toán tối ưu hóa phức tạp, tìm kiếm giải pháp gần tối ưu toàn cục (ví dụ: TSP, thiết kế mạch).
+
+*Minh họa hoạt động của Simulated Annealing:*
+![Minh họa GIF Simulated Annealing](GIF/Simulated.gif)
+> Gợi ý nội dung GIF: Thể hiện điểm di chuyển trên đồ thị hàm mục tiêu 2D. Lúc đầu di chuyển khá ngẫu nhiên (nhiệt độ cao), bao gồm cả việc đi xuống các thung lũng. Dần dần, bước nhảy ngẫu nhiên ít đi và tập trung khám phá xung quanh các điểm tốt (nhiệt độ thấp), cuối cùng hội tụ về một điểm (hy vọng là tối ưu toàn cục).
+
+#### **Local Beam Search (Tìm kiếm chùm cục bộ)**
+
+* **Mô tả:** Duy trì một "chùm" gồm **k** trạng thái tại mỗi bước.
+* **Cơ chế hoạt động:** Tại mỗi bước, sinh ra tất cả các trạng thái lân cận từ **tất cả k trạng thái** trong chùm. Sau đó, chọn ra **k trạng thái tốt nhất** từ tập hợp tất cả các lân cận này để tạo thành chùm mới cho bước tiếp theo.
+* **Đặc điểm:** Có thể khám phá nhiều khu vực cùng lúc, giảm nguy cơ mắc kẹt ở một tối ưu cục bộ đơn lẻ so với Hill Climbing đơn, nhưng không có sự "giao tiếp" thông tin giữa các nhánh trong chùm.
+* **Ứng dụng điển hình:** Các bài toán tối ưu hóa cần khám phá song song nhiều khả năng.
+
+*Minh họa hoạt động của Local Beam Search:*
+![Minh họa GIF Local Beam Search](GIF/LocalBeam.gif)
+> Gợi ý nội dung GIF: Thể hiện nhiều điểm (trạng thái) di chuyển song song trên đồ thị hàm mục tiêu 2D. Tại mỗi bước, nhiều lân cận được tạo ra từ mỗi điểm, và chỉ những điểm tốt nhất được giữ lại cho bước tiếp theo.
+
+#### **Genetic Algorithm (Thuật toán Di truyền)**
+
+* **Mô tả:** Lấy cảm hứng từ tiến hóa sinh học. Duy trì một quần thể các giải pháp (cá thể) và "tiến hóa" quần thể này qua các thế hệ bằng các toán tử di truyền.
+* **Cơ chế hoạt động:**
+    1.  **Khởi tạo:** Tạo quần thể ban đầu gồm các cá thể ngẫu nhiên.
+    2.  **Đánh giá:** Tính độ thích nghi (fitness) của mỗi cá thể bằng hàm mục tiêu.
+    3.  **Chọn lọc:** Chọn ra các cá thể "khỏe mạnh" hơn (fitness tốt hơn) để sinh sản.
+    4.  **Lai ghép (Crossover):** Kết hợp thông tin từ hai cá thể cha mẹ để tạo ra cá thể con mới.
+    5.  **Đột biến (Mutation):** Thay đổi ngẫu nhiên một phần nhỏ của cá thể con.
+    6.  Lặp lại các bước trên cho đến khi đạt điều kiện dừng.
+* **Đặc điểm:** Hiệu quả cho các bài toán tối ưu hóa phức tạp, tìm kiếm trong không gian lớn, có khả năng tìm được tối ưu toàn cục, nhưng mang tính ngẫu nhiên và cần điều chỉnh nhiều tham số (kích thước quần thể, xác suất lai ghép/đột biến).
+* **Ứng dụng điển hình:** Tối ưu hóa đa tham số, thiết kế, lập kế hoạch phức tạp.
+
+*Minh họa hoạt động của Genetic Algorithm:*
+![Minh họa GIF Genetic Algorithm](GIF/Genetic.gif)
+> Gợi ý nội dung GIF: Thể hiện một "quần thể" các điểm (giải pháp) trên đồ thị hàm mục tiêu 2D. Qua mỗi thế hệ, các điểm mới được sinh ra xung quanh các điểm tốt hơn, và quần thể dần "di chuyển" và tập trung về các khu vực có giá trị hàm mục tiêu tốt hơn.
+
+---
+
+*So sánh hiệu suất các thuật toán Tìm kiếm Cục bộ:*
+![Biểu đồ so sánh Hiệu suất Local Search](path/to/your/local_search_performance_chart.png)
+> Gợi ý nội dung ảnh: Biểu đồ so sánh khả năng tìm được giá trị tối ưu (hoặc giá trị trung bình/tốt nhất tìm được) và tốc độ hội tụ của các thuật toán cục bộ trên một bài toán tối ưu hóa cụ thể (không nhất thiết là 8 ô chữ).
+
+**Nhận xét về các thuật toán Tìm kiếm Cục bộ:** Nhóm này rất mạnh mẽ cho các bài toán tối ưu hóa khi chỉ cần tìm trạng thái tốt nhất mà không cần đường đi. Ưu điểm lớn nhất là yêu cầu bộ nhớ thấp. Thách thức chính là nguy cơ mắc kẹt ở tối ưu cục bộ, với các thuật toán như Simulated Annealing và Genetic Algorithm có cơ chế để vượt qua. Chúng ít phù hợp trực tiếp để tìm *chuỗi bước đi* giải 8 ô chữ theo cách thông thường.
 
 ---
 
 ### 🔐 2.4. Các Thuật toán Tìm kiếm Ràng buộc (Constraint Satisfaction Problems - CSP)
 
-Giải quyết bài toán bằng cách tìm gán giá trị cho các biến sao cho thỏa mãn tập hợp các ràng buộc. 8 ô chữ thường không được mô hình hóa như CSP để tìm đường đi.
+Bài toán thỏa mãn ràng buộc (CSP) được định nghĩa bởi một tập hợp các biến, miền giá trị khả thi cho mỗi biến và một tập hợp các ràng buộc giữa các biến. Mục tiêu là tìm một gán giá trị cho tất cả các biến sao cho mọi ràng buộc đều được thỏa mãn.
 
-* **Một số thuật toán:** **Generate and Test**, **Backtracking Search**, **AC3**.
-* **Đặc điểm:** Phù hợp cho các bài toán gán giá trị, lập lịch, quy hoạch.
+Các thành phần chính của CSP:
+* **Biến (Variables):** Tập hợp các biến cần được gán giá trị.
+* **Miền giá trị (Domains):** Tập hợp các giá trị có thể gán cho mỗi biến.
+* **Ràng buộc (Constraints):** Các điều kiện mà các giá trị được gán cho các biến phải thỏa mãn.
+* **Lời giải:** Một gán giá trị cho tất cả các biến sao cho thỏa mãn tất cả các ràng buộc.
 
-*Minh họa chung về ý tưởng giải CSP:*
-![Minh họa CSP](path/to/your/csp_illustration.png)
+Bài toán 8 ô chữ thường được mô hình hóa tốt nhất như bài toán tìm kiếm trạng thái để tìm đường đi. CSP phù hợp hơn cho các bài toán như Sudoku, xếp lịch, tô màu bản đồ, bài toán N hậu.
+
+#### **Generate and Test (Sinh và Kiểm tra)**
+
+* **Mô tả:** Phương pháp đơn giản nhất: liệt kê tất cả các gán giá trị có thể cho các biến và kiểm tra từng gán giá trị đó xem có thỏa mãn tất cả ràng buộc không.
+* **Cơ chế hoạt động:**
+    1.  Sinh ra một gán giá trị đầy đủ cho tất cả các biến.
+    2.  Kiểm tra xem gán giá trị này có thỏa mãn **tất cả** các ràng buộc không.
+    3.  Nếu có, đó là một lời giải. Nếu không, quay lại bước 1 (cho đến khi hết khả năng sinh).
+* **Đặc điểm:** Đơn giản về mặt lý thuyết, nhưng **cực kỳ không hiệu quả** vì không gian gán giá trị có thể rất lớn ($|D|^n$, với $|D|$ là kích thước miền giá trị và $n$ là số biến) và việc kiểm tra ràng buộc chỉ được thực hiện ở cuối.
+* **Ứng dụng điển hình:** Chỉ dùng cho các bài toán rất nhỏ để minh họa.
+
+*Minh họa hoạt động của Generate and Test:*
+![Minh họa GIF Generate and Test CSP](path/to/your/generate_and_test_animation.gif)
+> Gợi ý nội dung GIF: Minh họa một bài toán CSP rất nhỏ. Thể hiện việc sinh ra lần lượt từng tổ hợp giá trị cho các biến và sau đó kiểm tra xem nó có thỏa mãn ràng buộc (ví dụ: đánh dấu X nếu không, V nếu có).
+
+#### **Backtracking Search (Tìm kiếm Quay lui)**
+
+* **Mô tả:** Một dạng của tìm kiếm theo chiều sâu (DFS) cho CSP. Gán giá trị cho từng biến một, và **kiểm tra ràng buộc ngay khi có thể**. Nếu một gán giá trị vi phạm ràng buộc, quay lui (undo) gán giá trị đó và thử giá trị khác cho biến hiện tại hoặc biến trước đó.
+* **Cơ chế hoạt động:**
+    1.  Chọn một biến chưa được gán giá trị.
+    2.  Thử gán một giá trị từ miền của biến đó.
+    3.  **Kiểm tra ràng buộc:** Nếu gán giá trị này mâu thuẫn với các ràng buộc liên quan đến các biến đã được gán giá trị trước đó, **quay lui** và thử giá trị khác cho biến hiện tại.
+    4.  Nếu gán giá trị hợp lệ, chuyển sang biến tiếp theo.
+    5.  Nếu tất cả các biến đều được gán giá trị hợp lệ, tìm thấy lời giải.
+    6.  Nếu đã thử hết các giá trị cho một biến mà không thành công, quay lui về biến trước đó.
+* **Đặc điểm:** Hiệu quả hơn Generate and Test đáng kể vì phát hiện sớm các thất bại, là thuật toán cơ bản cho giải CSP. Có thể cải thiện bằng các heuristic chọn biến/giá trị và kỹ thuật lan truyền ràng buộc (constraint propagation).
+* **Ứng dụng điển hình:** Giải Sudoku, bài toán N hậu, xếp lịch, cấu hình hệ thống.
+
+*Minh họa hoạt động của Backtracking Search:*
+![Minh họa GIF Backtracking Search CSP](path/to/your/backtracking_animation.gif)
+> Gợi ý nội dung GIF: Minh họa Backtracking trên một bài toán CSP (ví dụ: bài toán N hậu nhỏ). Cho thấy việc đặt quân hậu lần lượt vào các cột, kiểm tra ràng buộc (không bị tấn công), và quay lui khi không thể đặt được ở cột hiện tại.
+
+#### **AC3 (Arc Consistency Algorithm 3)**
+
+* **Mô tả:** Thuật toán tiền xử lý để loại bỏ các giá trị không nhất quán khỏi miền giá trị của các biến, nhằm thu hẹp không gian tìm kiếm trước khi thực hiện tìm kiếm thực tế (như Backtracking). Đảm bảo tính nhất quán cung (arc consistency) cho đồ thị ràng buộc.
+* **Cơ chế hoạt động:** Duy trì một hàng đợi các "cung" $(X_i, X_j)$ cần kiểm tra. Thuật toán lặp đi lặp lại:
+    1.  Lấy một cung $(X_i, X_j)$ ra khỏi hàng đợi.
+    2.  Kiểm tra tính nhất quán cung: Loại bỏ khỏi miền giá trị của $X_i$ tất cả các giá trị $x_i$ mà không có bất kỳ giá trị $x_j$ nào trong miền của $X_j$ thỏa mãn ràng buộc giữa $X_i$ và $X_j$.
+    3.  Nếu miền giá trị của $X_i$ bị thay đổi, thêm tất cả các cung $(X_k, X_i)$ liên quan đến $X_i$ (trừ $(X_j, X_i)$) vào hàng đợi.
+    4.  Dừng lại khi hàng đợi rỗng. Nếu bất kỳ miền giá trị nào trở thành rỗng, bài toán không có lời giải.
+* **Đặc điểm:** Là thuật toán **lan truyền ràng buộc**, không phải là thuật toán giải CSP hoàn chỉnh (nó không tìm ra lời giải, chỉ thu hẹp không gian). **Hoàn chỉnh** trong việc đảm bảo tính nhất quán cung.
+* **Ứng dụng điển hình:** Thường được sử dụng kết hợp với Backtracking (Backtracking + AC3) để cải thiện hiệu quả.
+
+*Minh họa hoạt động của AC3:*
+![Minh họa GIF AC3 CSP](path/to/your/ac3_animation.gif)
+> Gợi ý nội dung GIF: Minh họa AC3 trên một bài toán CSP nhỏ. Thể hiện các miền giá trị của các biến và các cung ràng buộc. Cho thấy quá trình kiểm tra từng cung và loại bỏ các giá trị không còn khả thi khỏi miền giá trị của các biến liên quan.
+
+---
+
+*So sánh hiệu suất các thuật toán giải CSP (trên bài toán CSP điển hình):*
+![Biểu đồ so sánh Hiệu suất CSP](path/to/your/csp_performance_chart.png)
+> Gợi ý nội dung ảnh: Biểu đồ so sánh hiệu quả của Generate and Test, Backtracking và Backtracking kết hợp AC3 trên một bài toán CSP (ví dụ: bài toán N hậu với N tăng dần). So sánh về số nút thăm hoặc thời gian chạy.
+
+**Nhận xét về các thuật toán Tìm kiếm Ràng buộc:** Nhóm này là trọng tâm khi giải các bài toán mà bản chất là thỏa mãn ràng buộc giữa các biến. Backtracking là thuật toán tìm kiếm có hệ thống cơ bản, và AC3 là kỹ thuật tiền xử lý mạnh mẽ giúp cải thiện đáng kể hiệu quả của Backtracking bằng cách loại bỏ sớm các khả năng không khả thi. Generate and Test chỉ mang tính lý thuyết.
 
 ---
 
 ### 🗺️ 2.5. Tìm kiếm trong Môi trường Phức tạp
 
-Áp dụng cho các môi trường không hoàn toàn quan sát được hoặc có tính ngẫu nhiên. 8 ô chữ tiêu chuẩn là môi trường đơn giản, xác định.
+Nhóm này đề cập đến các kỹ thuật tìm kiếm và lập kế hoạch trong các môi trường mà thông tin không hoàn chỉnh, không chắc chắn (stochastic) hoặc có nhiều tác nhân. Bài toán 8 ô chữ tiêu chuẩn là một môi trường đơn giản, hoàn toàn quan sát được và xác định.
 
-* **Các kỹ thuật:** Sử dụng **Đồ thị AND-OR**, **Tìm kiếm không có quan sát**, **Tìm kiếm có quan sát một phần**.
-* **Đặc điểm:** Cần thiết cho các bài toán phức tạp hơn trong thế giới thực.
+Đối với các bài toán trong môi trường phức tạp, định nghĩa bài toán và lời giải có thể khác nhau tùy loại môi trường.
 
-*Minh họa chung về Tìm kiếm trong Môi trường Phức tạp:*
-![Minh họa Tìm kiếm trong Môi trường Phức tạp](path/to/your/complex_search_illustration.png)
+#### **AND-OR Graph (Tìm kiếm trên đồ thị AND-OR)**
+
+* **Mô tả:** Cấu trúc dữ liệu dùng để biểu diễn các bài toán có thể phân rã thành các bài toán con. Các nút được phân loại thành nút AND (cần giải quyết *tất cả* các bài toán con) và nút OR (chỉ cần giải quyết *một* trong các bài toán con).
+* **Cơ chế tìm kiếm:** Tìm kiếm một "lời giải" dưới dạng một cây con (solution tree) trong đồ thị AND-OR. Quá trình tìm kiếm thường sử dụng biến thể của A* (ví dụ: AO*).
+* **Đặc điểm:** Phù hợp cho các bài toán có cấu trúc phân rã và các lựa chọn giải quyết. Lời giải là một kế hoạch phức tạp, có thể phân nhánh tùy theo lựa chọn hoặc kết quả của bài toán con.
+* **Ứng dụng điển hình:** Lập kế hoạch (Planning), chứng minh định lý tự động, chẩn đoán (ví dụ: hệ thống chuyên gia chẩn đoán bệnh dựa trên triệu chứng và kết quả xét nghiệm).
+
+*Minh họa Đồ thị AND-OR và Tìm kiếm:*
+![Minh họa GIF AND-OR Graph Search](path/to/your/and_or_graph_animation.gif)
+> Gợi ý nội dung GIF: Minh họa một ví dụ đơn giản về đồ thị AND-OR. Thể hiện các nút AND và OR. Có thể mô phỏng quá trình tìm kiếm lời giải (cây con) trên đồ thị đó.
+
+#### **Search with No Observation (Tìm kiếm không có Quan sát)**
+
+* **Mô tả:** Áp dụng trong môi trường mà tác nhân không nhận được bất kỳ thông tin phản hồi (quan sát) nào về trạng thái của môi trường sau khi thực hiện hành động. Tác nhân chỉ biết trạng thái ban đầu và mô hình chuyển trạng thái.
+* **Cơ chế tìm kiếm:** Tìm kiếm trong không gian của các **kế hoạch** (plans). Kế hoạch ở đây là một chuỗi hành động cố định (open-loop sequence) mà tác nhân tin rằng sẽ dẫn đến trạng thái đích bất kể sự không chắc chắn về kết quả chính xác của các hành động trung gian (trong giới hạn của mô hình).
+* **Đặc điểm:** Lời giải là một kế hoạch "chắc chắn" (guaranteed plan). Phù hợp khi chi phí quan sát quá cao hoặc không thể quan sát được.
+* **Ứng dụng điển hình:** Điều khiển thiết bị không có cảm biến, lập kế hoạch cho các hệ thống phản hồi chậm hoặc không có phản hồi.
+
+*Minh họa Tìm kiếm không có Quan sát:*
+![Minh họa GIF Search with No Observation](path/to/your/no_observation_animation.gif)
+> Gợi ý nội dung GIF: Minh họa một môi trường đơn giản nơi hành động có thể có kết quả không chắc chắn (ví dụ: di chuyển tiến có thể khiến tác nhân ở vị trí A hoặc B với xác suất nhất định). Thể hiện tác nhân không nhận được thông tin sau khi di chuyển, buộc nó phải thực hiện một chuỗi hành động đã định trước.
+
+#### **Search with Partial Observation (Tìm kiếm có Quan sát một phần)**
+
+* **Mô tả:** Áp dụng trong môi trường mà tác nhân nhận được thông tin phản hồi (quan sát) sau hành động, nhưng quan sát này không cung cấp đầy đủ thông tin để xác định chính xác trạng thái hiện tại. Tác nhân phải duy trì một **trạng thái niềm tin (belief state)** - một phân bố xác suất hoặc tập hợp các trạng thái có thể có của môi trường.
+* **Cơ chế tìm kiếm:** Tìm kiếm diễn ra trong không gian của các **belief state**. Lời giải là một **chính sách (policy)** ánh xạ mỗi belief state mà tác nhân có thể gặp phải sang hành động tốt nhất để thực hiện. Chính sách này sử dụng thông tin từ các quan sát để cập nhật belief state và đưa ra quyết định tiếp theo.
+* **Đặc điểm:** Lời giải là một chính sách "phản hồi" (feedback policy). Phức tạp hơn đáng kể so với tìm kiếm trong môi trường hoàn toàn quan sát.
+* **Ứng dụng điển hình:** Điều khiển robot với cảm biến nhiễu, chẩn đoán y tế (đưa ra xét nghiệm để thu thập thêm thông tin), lập kế hoạch trong môi trường không chắc chắn.
+
+*Minh họa Tìm kiếm có Quan sát một phần:*
+![Minh họa GIF Search with Partial Observation](path/to/your/partial_observation_animation.gif)
+> Gợi ý nội dung GIF: Minh họa tác nhân trong môi trường không hoàn toàn quan sát. Thể hiện "belief state" của tác nhân (ví dụ: một đám mây các vị trí có thể). Cho thấy khi tác nhân thực hiện hành động và nhận quan sát, belief state đó được cập nhật (ví dụ: đám mây vị trí co lại hoặc di chuyển).
+
+---
+
+*So sánh các kỹ thuật Tìm kiếm trong Môi trường Phức tạp:*
+![Biểu đồ so sánh các kỹ thuật Complex Environment Search](path/to/your/complex_search_comparison.png)
+> Gợi ý nội dung ảnh: Biểu đồ có thể so sánh độ phức tạp hoặc phạm vi ứng dụng của các kỹ thuật này. Việc so sánh định lượng trực tiếp rất khó vì chúng giải các loại bài toán hơi khác nhau.
+
+**Nhận xét về Tìm kiếm trong Môi trường Phức tạp:** Nhóm này giải quyết các thách thức tìm kiếm và lập kế hoạch trong thế giới thực, nơi thông tin không hoàn hảo là phổ biến. Các phương pháp này phức tạp hơn nhiều so với tìm kiếm trạng thái đơn giản như trên 8 ô chữ nhưng cần thiết cho các ứng dụng AI nâng cao.
 
 ---
 
 ### 🤖 2.6. Tìm kiếm Học tăng cường (Reinforcement Learning - RL)
 
-Tác nhân học cách đưa ra quyết định thông qua tương tác và nhận phản hồi (phần thưởng) từ môi trường. Có thể áp dụng cho 8 ô chữ như một bài toán RL, nhưng không phải cách tiếp cận thông thường.
+Học tăng cường là một lĩnh vực học máy nơi tác nhân học cách hành động trong một môi trường để tối đa hóa tổng phần thưởng nhận được theo thời gian thông qua thử và lỗi.
 
-* **Thuật toán chính được đề cập:** **Q-Learning** (học bảng giá trị Q cho cặp trạng thái-hành động).
+Các thành phần chính của RL:
+* **Tác nhân (Agent):** Người học/ra quyết định.
+* **Môi trường (Environment):** Thế giới mà tác nhân tương tác.
+* **Trạng thái (State):** Tình hình hiện tại của môi trường.
+* **Hành động (Action):** Các tác động mà tác nhân có thể thực hiện.
+* **Phần thưởng (Reward):** Tín hiệu phản hồi từ môi trường.
+* **Chính sách (Policy):** Chiến lược của tác nhân (ánh xạ trạng thái sang hành động).
+* **Hàm giá trị (Value Function):** Ước lượng phần thưởng tích lũy trong tương lai.
+* **Lời giải:** Một chính sách tối ưu, giúp tác nhân đạt được phần thưởng cao nhất.
 
-*Minh họa chung về chu trình RL và Q-Learning:*
-![Minh họa Q-Learning](path/to/your/q_learning_illustration.png)
+Bài toán 8 ô chữ có thể được khung hóa như một bài toán RL (trạng thái = cấu hình bảng, hành động = di chuyển ô trống, phần thưởng = phạt nhẹ mỗi bước, thưởng lớn khi đạt đích). Tác nhân sẽ học chính sách để giải 8 ô chữ.
+
+#### **Q-Learning**
+
+* **Mô tả:** Một thuật toán học tăng cường không cần mô hình (model-free), dựa trên giá trị. Nó học giá trị Q ($Q(s, a)$) - ước lượng tổng phần thưởng tối đa có thể nhận được khi thực hiện hành động $a$ ở trạng thái $s$ và tuân theo chính sách tối ưu sau đó.
+* **Cơ chế hoạt động:** Tác nhân tương tác với môi trường. Tại mỗi bước, nó thực hiện hành động $a$ ở trạng thái $s$, nhận phần thưởng $r$, và chuyển sang trạng thái $s'$. Sau đó, nó cập nhật giá trị $Q(s, a)$ dựa trên công thức Bellman:
+    $Q(s, a) \leftarrow Q(s, a) + \alpha \left[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \right]$
+    Trong đó $\alpha$ là tốc độ học, $\gamma$ là hệ số chiết khấu, và $\max_{a'} Q(s', a')$ là giá trị Q ước lượng tốt nhất ở trạng thái tiếp theo $s'$. Tác nhân cân bằng giữa khám phá (thử hành động mới) và khai thác (chọn hành động có Q cao nhất).
+* **Đặc điểm:** Học trực tiếp từ tương tác, không cần biết trước mô hình môi trường. Được chứng minh hội tụ đến giá trị Q tối ưu dưới các điều kiện nhất định. Phù hợp cho các bài toán mà mô hình khó hoặc không có sẵn.
+* **Ứng dụng điển hình:** Chơi game (ví dụ: các trò chơi Atari), điều khiển robot, quản lý tài nguyên, hệ thống khuyến nghị.
+
+*Minh họa Q-Learning:*
+![Minh họa GIF Q-Learning](path/to/your/q_learning_animation.gif)
+> Gợi ý nội dung GIF: **Minh họa chu trình học của tác nhân trong một môi trường đơn giản** (ví dụ: lưới 2D với phần thưởng ở đích). Thể hiện tác nhân di chuyển, nhận phần thưởng, và quan sát sự thay đổi của các giá trị Q được lưu trữ (ví dụ: trong một bảng Q-table hoặc hiển thị trực tiếp trên các ô của môi trường).
+
+---
+
+*So sánh các kỹ thuật Học tăng cường:*
+![Biểu đồ so sánh các kỹ thuật Reinforcement Learning](path/to/your/rl_comparison.png)
+> Gợi ý nội dung ảnh: Có thể so sánh Q-Learning với các thuật toán RL khác (ví dụ: SARSA, Policy Gradients) về tính chất (on-policy vs off-policy), yêu cầu (model-based vs model-free), hoặc hiệu quả trên các bài toán benchmark.
+
+**Nhận xét về Học tăng cường:** RL là một paradigm học máy mạnh mẽ để giải quyết các bài toán ra quyết định theo trình tự trong môi trường động. Q-Learning là một thuật toán nền tảng trong RL dựa trên giá trị. Mặc dù 8 ô chữ có thể được giải bằng Q-Learning, các thuật toán tìm kiếm trạng thái truyền thống thường hiệu quả hơn để tìm *đường đi tối ưu* trong môi trường xác định và quan sát đầy đủ như 8 ô chữ. RL tỏa sáng trong các môi trường phức tạp hơn, không xác định hoặc khi mô hình không có sẵn.
 
 ---
 
