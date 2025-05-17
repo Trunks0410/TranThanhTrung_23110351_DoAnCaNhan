@@ -170,7 +170,6 @@ Bài toán 8 ô chữ có thể được xem từ góc độ này (tìm cấu h�
 
 *Minh họa hoạt động của Simple Hill Climbing:*
 ![Minh họa GIF Simple Hill Climbing](GIF/Simple.gif)
-> Gợi ý nội dung GIF: Thể hiện một điểm (trạng thái) di chuyển trên đồ thị hàm mục tiêu 2D, luôn leo lên (hoặc xuống nếu là tối thiểu hóa) cho đến khi không thể đi tiếp. Làm nổi bật điểm bắt đầu và điểm dừng (có thể là tối ưu cục bộ).
 
 #### **Steepest Ascent Hill Climbing (Leo đồi dốc nhất)**
 
@@ -181,7 +180,6 @@ Bài toán 8 ô chữ có thể được xem từ góc độ này (tìm cấu h�
 
 *Minh họa hoạt động của Steepest Ascent Hill Climbing:*
 ![Minh họa GIF Steepest Ascent Hill Climbing](GIF/Steepest.gif)
-> Gợi ý nội dung GIF: Thể hiện một điểm di chuyển trên đồ thị hàm mục tiêu 2D, luôn chọn hướng có độ dốc lớn nhất để leo lên. Làm nổi bật điểm bắt đầu và điểm dừng (có thể là tối ưu cục bộ).
 
 #### **Stochastic Hill Climbing (Leo đồi ngẫu nhiên)**
 
@@ -192,7 +190,6 @@ Bài toán 8 ô chữ có thể được xem từ góc độ này (tìm cấu h�
 
 *Minh họa hoạt động của Stochastic Hill Climbing:*
 ![Minh họa GIF Stochastic Hill Climbing](GIF/Stochastic.gif)
-> Gợi ý nội dung GIF: Thể hiện điểm di chuyển, đôi khi không đi theo hướng dốc nhất mà chọn một hướng tốt hơn ngẫu nhiên.
 
 #### **Simulated Annealing (Tôi luyện mô phỏng)**
 
@@ -203,7 +200,6 @@ Bài toán 8 ô chữ có thể được xem từ góc độ này (tìm cấu h�
 
 *Minh họa hoạt động của Simulated Annealing:*
 ![Minh họa GIF Simulated Annealing](GIF/Simulated.gif)
-> Gợi ý nội dung GIF: Thể hiện điểm di chuyển trên đồ thị hàm mục tiêu 2D. Lúc đầu di chuyển khá ngẫu nhiên (nhiệt độ cao), bao gồm cả việc đi xuống các thung lũng. Dần dần, bước nhảy ngẫu nhiên ít đi và tập trung khám phá xung quanh các điểm tốt (nhiệt độ thấp), cuối cùng hội tụ về một điểm (hy vọng là tối ưu toàn cục).
 
 #### **Local Beam Search (Tìm kiếm chùm cục bộ)**
 
@@ -214,7 +210,6 @@ Bài toán 8 ô chữ có thể được xem từ góc độ này (tìm cấu h�
 
 *Minh họa hoạt động của Local Beam Search:*
 ![Minh họa GIF Local Beam Search](GIF/LocalBeam.gif)
-> Gợi ý nội dung GIF: Thể hiện nhiều điểm (trạng thái) di chuyển song song trên đồ thị hàm mục tiêu 2D. Tại mỗi bước, nhiều lân cận được tạo ra từ mỗi điểm, và chỉ những điểm tốt nhất được giữ lại cho bước tiếp theo.
 
 #### **Genetic Algorithm (Thuật toán Di truyền)**
 
@@ -231,13 +226,11 @@ Bài toán 8 ô chữ có thể được xem từ góc độ này (tìm cấu h�
 
 *Minh họa hoạt động của Genetic Algorithm:*
 ![Minh họa GIF Genetic Algorithm](GIF/Genetic.gif)
-> Gợi ý nội dung GIF: Thể hiện một "quần thể" các điểm (giải pháp) trên đồ thị hàm mục tiêu 2D. Qua mỗi thế hệ, các điểm mới được sinh ra xung quanh các điểm tốt hơn, và quần thể dần "di chuyển" và tập trung về các khu vực có giá trị hàm mục tiêu tốt hơn.
 
 ---
 
 *So sánh hiệu suất các thuật toán Tìm kiếm Cục bộ:*
 ![Biểu đồ so sánh Hiệu suất Local Search](path/to/your/local_search_performance_chart.png)
-> Gợi ý nội dung ảnh: Biểu đồ so sánh khả năng tìm được giá trị tối ưu (hoặc giá trị trung bình/tốt nhất tìm được) và tốc độ hội tụ của các thuật toán cục bộ trên một bài toán tối ưu hóa cụ thể (không nhất thiết là 8 ô chữ).
 
 **Nhận xét về các thuật toán Tìm kiếm Cục bộ:** Nhóm này rất mạnh mẽ cho các bài toán tối ưu hóa khi chỉ cần tìm trạng thái tốt nhất mà không cần đường đi. Ưu điểm lớn nhất là yêu cầu bộ nhớ thấp. Thách thức chính là nguy cơ mắc kẹt ở tối ưu cục bộ, với các thuật toán như Simulated Annealing và Genetic Algorithm có cơ chế để vượt qua. Chúng ít phù hợp trực tiếp để tìm *chuỗi bước đi* giải 8 ô chữ theo cách thông thường.
 
@@ -267,7 +260,6 @@ Bài toán 8 ô chữ thường được mô hình hóa tốt nhất như bài t
 
 *Minh họa hoạt động của Generate and Test:*
 ![Minh họa GIF Generate and Test CSP](path/to/your/generate_and_test_animation.gif)
-> Gợi ý nội dung GIF: Minh họa một bài toán CSP rất nhỏ. Thể hiện việc sinh ra lần lượt từng tổ hợp giá trị cho các biến và sau đó kiểm tra xem nó có thỏa mãn ràng buộc (ví dụ: đánh dấu X nếu không, V nếu có).
 
 #### **Backtracking Search (Tìm kiếm Quay lui)**
 
@@ -284,7 +276,6 @@ Bài toán 8 ô chữ thường được mô hình hóa tốt nhất như bài t
 
 *Minh họa hoạt động của Backtracking Search:*
 ![Minh họa GIF Backtracking Search CSP](path/to/your/backtracking_animation.gif)
-> Gợi ý nội dung GIF: Minh họa Backtracking trên một bài toán CSP (ví dụ: bài toán N hậu nhỏ). Cho thấy việc đặt quân hậu lần lượt vào các cột, kiểm tra ràng buộc (không bị tấn công), và quay lui khi không thể đặt được ở cột hiện tại.
 
 #### **AC3 (Arc Consistency Algorithm 3)**
 
@@ -299,13 +290,11 @@ Bài toán 8 ô chữ thường được mô hình hóa tốt nhất như bài t
 
 *Minh họa hoạt động của AC3:*
 ![Minh họa GIF AC3 CSP](path/to/your/ac3_animation.gif)
-> Gợi ý nội dung GIF: Minh họa AC3 trên một bài toán CSP nhỏ. Thể hiện các miền giá trị của các biến và các cung ràng buộc. Cho thấy quá trình kiểm tra từng cung và loại bỏ các giá trị không còn khả thi khỏi miền giá trị của các biến liên quan.
 
 ---
 
 *So sánh hiệu suất các thuật toán giải CSP (trên bài toán CSP điển hình):*
 ![Biểu đồ so sánh Hiệu suất CSP](path/to/your/csp_performance_chart.png)
-> Gợi ý nội dung ảnh: Biểu đồ so sánh hiệu quả của Generate and Test, Backtracking và Backtracking kết hợp AC3 trên một bài toán CSP (ví dụ: bài toán N hậu với N tăng dần). So sánh về số nút thăm hoặc thời gian chạy.
 
 **Nhận xét về các thuật toán Tìm kiếm Ràng buộc:** Nhóm này là trọng tâm khi giải các bài toán mà bản chất là thỏa mãn ràng buộc giữa các biến. Backtracking là thuật toán tìm kiếm có hệ thống cơ bản, và AC3 là kỹ thuật tiền xử lý mạnh mẽ giúp cải thiện đáng kể hiệu quả của Backtracking bằng cách loại bỏ sớm các khả năng không khả thi. Generate and Test chỉ mang tính lý thuyết.
 
@@ -326,7 +315,6 @@ Nhóm này đề cập đến các kỹ thuật tìm kiếm và lập kế hoạ
 
 *Minh họa Đồ thị AND-OR và Tìm kiếm:*
 ![Minh họa GIF AND-OR Graph Search](path/to/your/and_or_graph_animation.gif)
-> Gợi ý nội dung GIF: Minh họa một ví dụ đơn giản về đồ thị AND-OR. Thể hiện các nút AND và OR. Có thể mô phỏng quá trình tìm kiếm lời giải (cây con) trên đồ thị đó.
 
 #### **Search with No Observation (Tìm kiếm không có Quan sát)**
 
@@ -337,7 +325,6 @@ Nhóm này đề cập đến các kỹ thuật tìm kiếm và lập kế hoạ
 
 *Minh họa Tìm kiếm không có Quan sát:*
 ![Minh họa GIF Search with No Observation](path/to/your/no_observation_animation.gif)
-> Gợi ý nội dung GIF: Minh họa một môi trường đơn giản nơi hành động có thể có kết quả không chắc chắn (ví dụ: di chuyển tiến có thể khiến tác nhân ở vị trí A hoặc B với xác suất nhất định). Thể hiện tác nhân không nhận được thông tin sau khi di chuyển, buộc nó phải thực hiện một chuỗi hành động đã định trước.
 
 #### **Search with Partial Observation (Tìm kiếm có Quan sát một phần)**
 
@@ -348,13 +335,11 @@ Nhóm này đề cập đến các kỹ thuật tìm kiếm và lập kế hoạ
 
 *Minh họa Tìm kiếm có Quan sát một phần:*
 ![Minh họa GIF Search with Partial Observation](path/to/your/partial_observation_animation.gif)
-> Gợi ý nội dung GIF: Minh họa tác nhân trong môi trường không hoàn toàn quan sát. Thể hiện "belief state" của tác nhân (ví dụ: một đám mây các vị trí có thể). Cho thấy khi tác nhân thực hiện hành động và nhận quan sát, belief state đó được cập nhật (ví dụ: đám mây vị trí co lại hoặc di chuyển).
 
 ---
 
 *So sánh các kỹ thuật Tìm kiếm trong Môi trường Phức tạp:*
 ![Biểu đồ so sánh các kỹ thuật Complex Environment Search](path/to/your/complex_search_comparison.png)
-> Gợi ý nội dung ảnh: Biểu đồ có thể so sánh độ phức tạp hoặc phạm vi ứng dụng của các kỹ thuật này. Việc so sánh định lượng trực tiếp rất khó vì chúng giải các loại bài toán hơi khác nhau.
 
 **Nhận xét về Tìm kiếm trong Môi trường Phức tạp:** Nhóm này giải quyết các thách thức tìm kiếm và lập kế hoạch trong thế giới thực, nơi thông tin không hoàn hảo là phổ biến. Các phương pháp này phức tạp hơn nhiều so với tìm kiếm trạng thái đơn giản như trên 8 ô chữ nhưng cần thiết cho các ứng dụng AI nâng cao.
 
@@ -387,13 +372,11 @@ Bài toán 8 ô chữ có thể được khung hóa như một bài toán RL (tr
 
 *Minh họa Q-Learning:*
 ![Minh họa GIF Q-Learning](path/to/your/q_learning_animation.gif)
-> Gợi ý nội dung GIF: **Minh họa chu trình học của tác nhân trong một môi trường đơn giản** (ví dụ: lưới 2D với phần thưởng ở đích). Thể hiện tác nhân di chuyển, nhận phần thưởng, và quan sát sự thay đổi của các giá trị Q được lưu trữ (ví dụ: trong một bảng Q-table hoặc hiển thị trực tiếp trên các ô của môi trường).
 
 ---
 
 *So sánh các kỹ thuật Học tăng cường:*
 ![Biểu đồ so sánh các kỹ thuật Reinforcement Learning](path/to/your/rl_comparison.png)
-> Gợi ý nội dung ảnh: Có thể so sánh Q-Learning với các thuật toán RL khác (ví dụ: SARSA, Policy Gradients) về tính chất (on-policy vs off-policy), yêu cầu (model-based vs model-free), hoặc hiệu quả trên các bài toán benchmark.
 
 **Nhận xét về Học tăng cường:** RL là một paradigm học máy mạnh mẽ để giải quyết các bài toán ra quyết định theo trình tự trong môi trường động. Q-Learning là một thuật toán nền tảng trong RL dựa trên giá trị. Mặc dù 8 ô chữ có thể được giải bằng Q-Learning, các thuật toán tìm kiếm trạng thái truyền thống thường hiệu quả hơn để tìm *đường đi tối ưu* trong môi trường xác định và quan sát đầy đủ như 8 ô chữ. RL tỏa sáng trong các môi trường phức tạp hơn, không xác định hoặc khi mô hình không có sẵn.
 
