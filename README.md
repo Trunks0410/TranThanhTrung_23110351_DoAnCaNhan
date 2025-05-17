@@ -1,32 +1,224 @@
-# 🔢 Đồ án cá nhân: 8-Puzzle Solver
+# ✨ ĐỒ ÁN CÁ NHÂN MÔN TRÍ TUỆ NHÂN TẠO✨
 
-## 🎯 Mục tiêu
-Xây dựng một chương trình giải bài toán **8-Puzzle** sử dụng nhiều thuật toán tìm kiếm khác nhau trong lĩnh vực Trí tuệ nhân tạo.
+## 📚 Giới thiệu
+
+Chào mừng bạn đến với repository của dự án phân tích các thuật toán tìm kiếm cơ bản và nâng cao trong Trí tuệ Nhân tạo. Dự án này tập trung vào việc nghiên cứu sâu sắc, triển khai và đánh giá hiệu quả của các thuật toán này trên bài toán kinh điển **8 ô chữ (8-Puzzle)**. Đây là một bài toán tìm kiếm trạng thái tuyệt vời để minh họa và so sánh các phương pháp giải khác nhau.
+
+File README này đóng vai trò như một bản báo cáo tóm tắt về quá trình và kết quả nghiên cứu của chúng tôi.
+
+---
+
+## 🎯 1. Mục tiêu
+
+Các mục tiêu chính mà dự án hướng tới bao gồm:
+
+* Nắm vững **cơ chế hoạt động** và **đặc điểm lý thuyết** của các nhóm thuật toán tìm kiếm đa dạng.
+* Áp dụng thành công các thuật toán tìm kiếm vào việc giải **bài toán 8 ô chữ**.
+* **Đánh giá định lượng và định tính** hiệu suất của các thuật toán (thời gian, bộ nhớ, số bước) khi chạy trên 8 ô chữ thông qua các thực nghiệm.
+* Tổng hợp và trình bày kết quả nghiên cứu một cách **trực quan và khoa học**.
 
 ---
 
-## 🧠 Các thuật toán được triển khai
+## 📖 2. Nội dung Chi tiết
 
-| Thuật Toán               | Mô Tả                                                                 | Minh Hóa GIF                              |
-|--------------------------|----------------------------------------------------------------------|-------------------------------------------|
-| **Breadth-First Search (BFS)** | Khám phá tuần tự theo từng lớp: Bắt đầu từ nút gốc, thuật toán duyệt qua tất cả các nút ở cùng độ sâu trước khi chuyển sang độ sâu tiếp theo. Ưu điểm: Đảm bảo tìm được đường đi ngắn nhất (nếu có). Nhược điểm: Tốn nhiều bộ nhớ cho các bài toán có không gian trạng thái rộng.             | <img src="images/bfs.gif" width="500" alt="BFS"> |
-| **Depth-First Search (DFS)**   | Đi sâu vào một nhánh trước khi quay lui: Thuật toán khám phá một nhánh của cây tìm kiếm càng sâu càng tốt trước khi quay lại và khám phá các nhánh khác. Ưu điểm: Tiết kiệm bộ nhớ hơn BFS. Nhược điểm: Không đảm bảo tìm được đường đi ngắn nhất và có thể bị mắc kẹt trong các nhánh vô hạn.    | <img src="images/dfs.gif" width="500" alt="DFS"> |
-| **Uniform Cost Search (UCS)**  | Mở rộng nút có chi phí đường đi thấp nhất: Tương tự BFS, nhưng ưu tiên các đường đi có tổng chi phí từ nút gốc đến nút hiện tại là nhỏ nhất. Ưu điểm: Tìm được đường đi có chi phí thấp nhất. Nhược điểm: Có thể tốn kém thời gian nếu hàm chi phí không tốt.        | <img src="images/ucs.gif" width="500" alt="UCS"> |
-| **Iterative Deepening DFS (IDDFS)** | Kết hợp sức mạnh của DFS và BFS: Thực hiện DFS với độ sâu giới hạn tăng dần. Ưu điểm: Vừa tìm được đường đi ngắn nhất (như BFS) vừa tiết kiệm bộ nhớ (như DFS). Nhược điểm: Có thể tính toán lại các trạng thái ở các độ sâu khác nhau.                 | <img src="images/iddfs.gif" width="500" alt="IDDFS"> |
-| **Greedy Best-First Search**   | Ưu tiên khám phá các nút có vẻ "hứa hẹn" nhất: Sử dụng hàm heuristic để ước tính chi phí từ nút hiện tại đến mục tiêu và chọn nút có giá trị heuristic thấp nhất để mở rộng. Ưu điểm: Thường tìm được giải pháp nhanh chóng. Nhược điểm: Có thể không tìm được đường đi tối ưu nếu hàm heuristic không chính xác.             | <img src="images/greedy.gif" width="500" alt="GREEDY"> |
-| **A* Search**                 | Cân bằng giữa chi phí đã đi và ước tính chi phí còn lại: Kết hợp chi phí thực tế từ nút gốc đến nút hiện tại (g(n)) và chi phí ước tính từ nút hiện tại đến mục tiêu (h(n)) để đánh giá (f(n)=g(n)+h(n)). Ưu điểm: Tìm được đường đi ngắn nhất một cách hiệu quả nếu hàm heuristic chấp nhận được. Nhược điểm: Tốn bộ nhớ để lưu trữ các nút đã xét.        | <img src="images/astar.gif" width="500" alt="A*"> |
-| **IDA* Search**               | Phiên bản tiết kiệm bộ nhớ của A:* Thực hiện tìm kiếm theo chiều sâu lặp đi lặp lại với ngưỡng chi phí (f(n)) tăng dần. Ưu điểm: Tiết kiệm bộ nhớ hơn A* mà vẫn đảm bảo tìm được đường đi tối ưu. Nhược điểm: Có thể tốn thời gian hơn A* do phải thực hiện nhiều lần tìm kiếm DFS.                     | <img src="images/idastar.gif" width="500" alt="IDA*"> |
-| **Simple Hill Climbing**       | Chỉ di chuyển đến trạng thái lân cận tốt hơn: Bắt đầu từ một trạng thái ngẫu nhiên và liên tục di chuyển đến trạng thái lân cận có giá trị hàm mục tiêu tốt hơn. Ưu điểm: Đơn giản và dễ thực hiện. Nhược điểm: Dễ bị mắc kẹt ở cực trị cục bộ (local optima).                       | <img src="images/simplehillclimbing.gif" width="500" alt="Simple HC"> |
-| **Steepest Hill Climbing**     | Xem xét tất cả các trạng thái lân cận và chọn trạng thái tốt nhất: Tại mỗi bước, thuật toán đánh giá tất cả các trạng thái lân cận và di chuyển đến trạng thái có giá trị hàm mục tiêu tốt nhất. Ưu điểm: Cải thiện hơn Simple Hill Climbing trong việc tránh các bước đi tồi tệ. Nhược điểm: Vẫn có khả năng bị mắc kẹt ở cực trị cục bộ.     | <img src="images/steepesthillclimbing.gif" width="500" alt="Steepest HC"> |
-| **Stochastic Hill Climbing**   | Cho phép di chuyển đến trạng thái xấu với một xác suất nhất định: Tương tự Steepest Hill Climbing, nhưng có thêm cơ chế ngẫu nhiên để thoát khỏi cực trị cục bộ bằng cách đôi khi chấp nhận các bước đi "xuống dốc". Ưu điểm: Ít bị mắc kẹt ở cực trị cục bộ hơn các thuật toán leo dốc đơn giản. Nhược điểm: Vẫn không đảm bảo tìm được giải pháp tối ưu toàn cục.                | <img src="images/stochastichillclimbing.gif" width="500" alt="Stochastic HC"> |
-| **Simulated Annealing**        | Mô phỏng quá trình làm nguội kim loại: Bắt đầu với "nhiệt độ" cao và giảm dần theo thời gian. Ở nhiệt độ cao, thuật toán có khả năng chấp nhận các giải pháp xấu hơn để thoát khỏi cực trị cục bộ. Khi nhiệt độ giảm, khả năng này giảm dần. Ưu điểm: Có khả năng tìm được giải pháp tối ưu toàn cục tốt hơn các thuật toán leo dốc khác. Nhược điểm: Yêu cầu điều chỉnh các tham số (lịch làm nguội) cẩn thận để đạt hiệu quả tốt.    | <img src="images/simulatedannealing.gif" width="500" alt="Simulated Annealing"> |
-| **Beam Search**                | Duy trì một "chùm" các trạng thái tốt nhất: Thay vì chỉ giữ lại một trạng thái duy nhất, thuật toán giữ lại một số lượng cố định (kích thước chùm) các trạng thái có vẻ hứa hẹn nhất ở mỗi bước. Ưu điểm: Khám phá không gian trạng thái rộng hơn so với các thuật toán tìm kiếm cục bộ đơn lẻ. Nhược điểm: Có thể bỏ lỡ giải pháp tối ưu nếu kích thước chùm quá nhỏ.   | <img src="images/beamsearch.gif" width="500" alt="Beam Search"> |
+Phần này đi sâu vào từng nhóm thuật toán đã nghiên cứu, làm rõ cách chúng hoạt động và hiệu quả trên bài toán 8 ô chữ.
 
-## 👨‍💻 Tác giả
+### 🧩 Bài toán 8 Ô Chữ: Định nghĩa Tìm kiếm
 
-**Trần Thành Trung**  
-MSSV: `23110351`  
-Môn: `Trí Tuệ Nhân Tạo`
-Giáo viên hướng dẫn: `Phan Thị Huyền Trang` 
+Trước khi đi vào từng thuật toán, hãy cùng định nghĩa các thành phần của bài toán 8 ô chữ dưới góc độ bài toán tìm kiếm:
+
+* **Không gian trạng thái:** Tập hợp tất cả các cấu hình (cách sắp xếp) có thể có của 8 viên gạch số và 1 ô trống trên bảng 3x3.
+* **Trạng thái ban đầu:** Cấu hình ban đầu của bảng (thường là ngẫu nhiên hoặc do người dùng nhập).
+* **Hàm chuyển trạng thái:** Các hành động di chuyển ô trống (lên, xuống, trái, phải) nếu hợp lệ, dẫn đến cấu hình bảng mới (trạng thái mới).
+* **Trạng thái đích:** Cấu hình bảng mà các viên gạch được sắp xếp theo thứ tự mong muốn (ví dụ: 1-2-3 ở hàng trên, 4-5-6 ở giữa, 7-8-trống ở dưới).
+* **Chi phí bước đi:** Chi phí để thực hiện một hành động chuyển trạng thái (thường là 1 cho mỗi nước đi).
+* **Lời giải:** Một chuỗi các hành động hợp lệ từ trạng thái ban đầu dẫn đến trạng thái đích. Chi phí của lời giải là tổng chi phí các bước đi (bằng độ dài chuỗi khi chi phí = 1).
 
 ---
+
+### 🔍 2.1. Các Thuật toán Tìm kiếm không có Thông tin (Uninformed Search)
+
+Nhóm thuật toán này không sử dụng bất kỳ kiến thức bổ sung nào về mục tiêu hoặc "khoảng cách" đến đích. Chúng duyệt không gian trạng thái theo một quy tắc cố định.
+
+#### **Tìm kiếm theo chiều rộng (BFS)**
+
+* **Cơ chế:** Khám phá không gian trạng thái theo từng cấp độ (level-by-level), sử dụng **Hàng đợi (Queue)**.
+* **Đặc điểm:**
+    * **Hoàn chỉnh (Complete):** Có.
+    * **Tối ưu (Optimal):** Có, khi chi phí bước đi đồng nhất.
+    * **Độ phức tạp thời gian:** $O(b^d)$.
+    * **Độ phức tạp không gian:** $O(b^d)$ - nhược điểm lớn.
+* **Áp dụng trên 8 ô chữ:** Tìm được lời giải ngắn nhất, nhưng yêu cầu bộ nhớ rất lớn với các bài toán sâu.
+
+*Xem BFS hoạt động trên 8 ô chữ:*
+![Minh họa GIF BFS 8-Puzzle](path/to/your/bfs_animation.gif)
+
+#### **Tìm kiếm theo chiều sâu (DFS)**
+
+* **Cơ chế:** Khám phá sâu nhất có thể theo một nhánh trước khi quay lui, sử dụng **Ngăn xếp (Stack)** hoặc đệ quy.
+* **Đặc điểm:**
+    * **Hoàn chỉnh:** Không (có thể đi vào vòng lặp hoặc nhánh vô hạn).
+    * **Tối ưu:** Không.
+    * **Độ phức tạp thời gian:** $O(b^m)$ ( $m$ là độ sâu lớn nhất).
+    * **Độ phức tạp không gian:** $O(bm)$ - ưu điểm về bộ nhớ.
+* **Áp dụng trên 8 ô chữ:** Tiết kiệm bộ nhớ, nhưng lời giải thường không tối ưu và có thể không tìm thấy đích nếu không có giới hạn/kiểm tra trạng thái lặp.
+
+*Xem DFS hoạt động trên 8 ô chữ:*
+![Minh họa GIF DFS 8-Puzzle](path/to/your/dfs_animation.gif)
+
+#### **Tìm kiếm chi phí đồng nhất (UCS)**
+
+* **Cơ chế:** Mở rộng nút có chi phí đường đi từ gốc ($g(n)$) thấp nhất, sử dụng **Hàng đợi ưu tiên (Priority Queue)**.
+* **Đặc điểm:**
+    * **Hoàn chỉnh:** Có (với chi phí không âm).
+    * **Tối ưu:** Có.
+    * **Độ phức tạp:** Tương tự **BFS** khi chi phí bước đi bằng 1 ($O(b^d)$ thời gian/không gian).
+* **Áp dụng trên 8 ô chữ:** Đảm bảo lời giải tối ưu chi phí (tương tự BFS), nhưng vẫn tốn bộ nhớ.
+
+*Xem UCS hoạt động trên 8 ô chữ:*
+![Minh họa GIF UCS 8-Puzzle](path/to/your/ucs_animation.gif)
+
+#### **Tìm kiếm theo chiều sâu lặp sâu dần (IDS)**
+
+* **Cơ chế:** Thực hiện chuỗi DFS với giới hạn độ sâu tăng dần (0, 1, 2, ...).
+* **Đặc điểm:**
+    * **Hoàn chỉnh:** Có.
+    * **Tối ưu:** Có (khi chi phí đồng nhất).
+    * **Độ phức tạp thời gian:** $O(b^d)$.
+    * **Độ phức tạp không gian:** $O(bd)$ - ưu điểm bộ nhớ.
+* **Áp dụng trên 8 ô chữ:** Cân bằng giữa tính tối ưu (như BFS) và hiệu quả bộ nhớ (như DFS), thường là lựa chọn tốt nhất trong nhóm không có thông tin cho 8 ô chữ.
+
+*Xem IDS hoạt động trên 8 ô chữ:*
+![Minh họa GIF IDS 8-Puzzle](path/to/your/ids_animation.gif)
+
+---
+
+*So sánh hiệu suất các thuật toán Tìm kiếm không có thông tin trên bài toán 8 ô chữ:*
+![Biểu đồ so sánh Hiệu suất Uninformed Search 8-Puzzle](path/to/your/uninformed_performance_chart.png)
+
+**Nhận xét về hiệu suất trên 8 ô chữ:** Dữ liệu thực nghiệm cho thấy **IDS** là thuật toán không có thông tin hiệu quả nhất trên 8 ô chữ. Mặc dù BFS/UCS tìm được lời giải tối ưu, yêu cầu bộ nhớ của chúng tăng lên rất nhanh với độ sâu lời giải. DFS tiết kiệm bộ nhớ nhưng thường tìm ra lời giải dài hơn đáng kể. IDS khắc phục được nhược điểm bộ nhớ của BFS mà vẫn giữ được tính tối ưu và hiệu quả thời gian tương đương.
+
+---
+
+### 🧠 2.2. Các Thuật toán Tìm kiếm có Thông tin (Informed Search / Heuristic Search)
+
+Nhóm này sử dụng **Hàm Heuristic ($h(n)$)** - ước lượng chi phí từ trạng thái $n$ đến đích - để hướng dẫn quá trình tìm kiếm hiệu quả hơn. Các heuristic cho 8 ô chữ bao gồm:
+* $h_1(n)$: Số ô sai vị trí.
+* $h_2(n)$: Tổng khoảng cách Manhattan của các ô đến vị trí đích.
+
+#### **Tìm kiếm tham lam nhất (Greedy Best-First Search)**
+
+* **Cơ chế:** Luôn mở rộng nút có giá trị $h(n)$ thấp nhất.
+* **Đặc điểm:**
+    * **Hoàn chỉnh:** Không.
+    * **Tối ưu:** Không.
+* **Áp dụng trên 8 ô chữ:** Tìm kiếm nhanh chóng theo "trực giác" của heuristic, nhưng thường tìm thấy lời giải không tối ưu.
+
+*Xem Greedy Search hoạt động trên 8 ô chữ:*
+![Minh họa GIF Greedy Search 8-Puzzle](path/to/your/greedy_animation.gif)
+
+#### **Thuật toán A* (A* Search)**
+
+* **Cơ chế:** Mở rộng nút có hàm đánh giá $f(n) = g(n) + h(n)$ thấp nhất. Cân bằng giữa chi phí đã đi ($g$) và ước lượng chi phí còn lại ($h$).
+* **Đặc điểm:**
+    * **Hoàn chỉnh:** Có.
+    * **Tối ưu:** Có, nếu heuristic được chấp nhận ($h(n) \le h^*(n)$). $h_1$ và $h_2$ đều được chấp nhận.
+    * **Độ phức tạp thời gian/không gian:** Phụ thuộc vào chất lượng heuristic, trường hợp xấu nhất là $O(b^d)$, nhưng thường hiệu quả hơn nhiều trong thực tế.
+* **Áp dụng trên 8 ô chữ:** Là thuật toán hiệu quả nhất trong nhóm tìm kiếm trạng thái. Với heuristic **Manhattan Distance ($h_2$)** (là heuristic được chấp nhận và nhất quán mạnh mẽ cho 8 ô chữ), A* tìm được lời giải tối ưu rất nhanh chóng.
+
+*Xem A* hoạt động trên 8 ô chữ:*
+![Minh họa GIF A* Search 8-Puzzle](path/to/your/a_star_animation.gif)
+
+#### **Tìm kiếm theo chiều sâu lặp sâu dần với A* (IDA*)**
+
+* **Cơ chế:** Phiên bản lặp sâu dần của A*, giới hạn tìm kiếm theo ngưỡng $f(n)$ thay vì độ sâu.
+* **Đặc điểm:**
+    * **Hoàn chỉnh:** Có.
+    * **Tối ưu:** Có (nếu heuristic được chấp nhận).
+    * **Độ phức tạp thời gian:** $O(b^d)$.
+    * **Độ phức tạp không gian:** $O(bd)$ - vượt trội A* truyền thống về bộ nhớ.
+* **Áp dụng trên 8 ô chữ:** Lựa chọn tối ưu khi bài toán lớn, đòi hỏi tính tối ưu của A* nhưng bộ nhớ là giới hạn.
+
+*Xem IDA* hoạt động trên 8 ô chữ:*
+![Minh họa GIF IDA* Search 8-Puzzle](path/to/your/ida_star_animation.gif)
+
+---
+
+*So sánh hiệu suất các thuật toán Tìm kiếm có thông tin trên bài toán 8 ô chữ (ví dụ với heuristic $h_2$):*
+![Biểu đồ so sánh Hiệu suất Informed Search 8-Puzzle](path/to/your/informed_performance_chart.png)
+
+**Nhận xét về hiệu suất trên 8 ô chữ:** Các thuật toán có thông tin, đặc biệt là **A*** và **IDA*** với heuristic **Manhattan Distance**, cho thấy hiệu quả vượt trội so với nhóm không có thông tin về tốc độ và số nút thăm trong khi vẫn đảm bảo tính tối ưu của lời giải. IDA* là giải pháp lý tưởng khi cần tối ưu cả về thời gian và bộ nhớ. Greedy Search nhanh nhưng không đáng tin cậy về tính tối ưu.
+
+---
+
+### ⛰️ 2.3. Các Thuật toán Tìm kiếm Cục bộ (Local Search)
+
+Tìm kiếm cục bộ hoạt động bằng cách di chuyển giữa các trạng thái lân cận trong không gian cấu hình để tìm trạng thái tốt nhất theo một hàm mục tiêu. Chúng không lưu lại đường đi và thường được dùng cho các bài toán tối ưu hóa, không phải tìm đường đi như 8 ô chữ.
+
+* **Một số thuật toán:** **Hill Climbing** (Simple, Steepest, Stochastic), **Simulated Annealing**, **Local Beam Search**, **Genetic Algorithm**.
+* **Đặc điểm:** Rất hiệu quả về bộ nhớ, nhưng có nguy cơ mắc kẹt ở tối ưu cục bộ (trừ các biến thể như Simulated Annealing).
+
+*Minh họa chung về ý tưởng Tìm kiếm Cục bộ:*
+![Minh họa Tìm kiếm Cục bộ](path/to/your/local_search_illustration.png)
+
+---
+
+### 🔐 2.4. Các Thuật toán Tìm kiếm Ràng buộc (Constraint Satisfaction Problems - CSP)
+
+Giải quyết bài toán bằng cách tìm gán giá trị cho các biến sao cho thỏa mãn tập hợp các ràng buộc. 8 ô chữ thường không được mô hình hóa như CSP để tìm đường đi.
+
+* **Một số thuật toán:** **Generate and Test**, **Backtracking Search**, **AC3**.
+* **Đặc điểm:** Phù hợp cho các bài toán gán giá trị, lập lịch, quy hoạch.
+
+*Minh họa chung về ý tưởng giải CSP:*
+![Minh họa CSP](path/to/your/csp_illustration.png)
+
+---
+
+### 🗺️ 2.5. Tìm kiếm trong Môi trường Phức tạp
+
+Áp dụng khi môi trường không hoàn toàn quan sát được hoặc có tính ngẫu nhiên. 8 ô chữ tiêu chuẩn là môi trường đơn giản, xác định.
+
+* **Các kỹ thuật:** Sử dụng **Đồ thị AND-OR**, **Tìm kiếm không có quan sát**, **Tìm kiếm có quan sát một phần**.
+* **Đặc điểm:** Cần thiết cho các bài toán phức tạp hơn trong thế giới thực.
+
+*Minh họa chung về Tìm kiếm trong Môi trường Phức tạp:*
+![Minh họa Tìm kiếm trong Môi trường Phức tạp](path/to/your/complex_search_illustration.png)
+
+---
+
+### 🤖 2.6. Tìm kiếm Học tăng cường (Reinforcement Learning - RL)
+
+Tác nhân học cách đưa ra quyết định thông qua tương tác và nhận phản hồi (phần thưởng) từ môi trường. Có thể áp dụng cho 8 ô chữ như một bài toán RL, nhưng không phải cách tiếp cận thông thường.
+
+* **Thuật toán chính được đề cập:** **Q-Learning** (học bảng giá trị Q cho cặp trạng thái-hành động).
+
+*Minh họa chung về chu trình RL và Q-Learning:*
+![Minh họa Q-Learning](path/to/your/q_learning_illustration.png)
+
+---
+
+## ✅ 3. Kết luận
+
+Dự án đã mang lại cái nhìn tổng quan và sâu sắc về các thuật toán tìm kiếm trong AI, đặc biệt thông qua việc áp dụng chúng vào bài toán 8 ô chữ.
+
+Chúng tôi đã xác nhận rằng các thuật toán tìm kiếm trạng thái như **A*** và **IDA*** (với heuristic Manhattan Distance) là những phương pháp **hiệu quả và tối ưu nhất** để giải bài toán 8 ô chữ. IDS là lựa chọn thay thế tốt trong nhóm không có thông tin. Các nhóm thuật toán khác có vai trò quan trọng nhưng phù hợp hơn với các loại bài toán khác trong lĩnh vực AI.
+
+Việc thực hiện dự án này không chỉ củng cố kiến thức lý thuyết mà còn trang bị kỹ năng đánh giá hiệu suất thực tế của các thuật toán, làm nền tảng cho việc giải quyết các bài toán phức tạp hơn trong tương lai.
+
+---
+
+## 🧑‍💻 Tác giả
+
+* [Tên của bạn]
+* [Các thành viên khác trong nhóm (nếu có)]
+
+---
+
+## 🚀 Cấu trúc Project & Cách chạy (Nếu có mã nguồn)
+
+(Phần này bạn có thể thêm vào nếu project của bạn bao gồm mã nguồn. Mô tả cấu trúc thư mục, cách cài đặt dependencies và lệnh để chạy thử các thuật toán trên 8 ô chữ.)
+
+Ví dụ:
+
+```markdown
