@@ -1,8 +1,8 @@
-# ✨ĐỒ ÁN CÁ NHÂN MÔN TRÍ TUỆ NHÂN TẠO✨
+# ✨ĐỒ ÁN CÁ NHÂN MÔN TRÍ TUỆ NHÂN TẠO: Phân tích & ứng dụng các Thuật toán Tìm kiếm trên Bài toán 8 Ô Chữ✨
 
 ## 📚 Giới thiệu
 
-Báo cáo này trình bày kết quả nghiên cứu và triển khai các thuật toán tìm kiếm cơ bản và nâng cao trong lĩnh vực Trí tuệ Nhân tạo. Dự án tập trung vào việc phân tích cơ chế hoạt động, đặc điểm lý thuyết và đánh giá hiệu quả hoạt động của các thuật toán này khi áp dụng trên bài toán kinh điển **8 ô chữ (8-Puzzle)**, một ví dụ điển hình cho bài toán tìm kiếm trạng thái. Nội dung báo cáo tóm tắt này được trình bày dựa trên cấu trúc yêu cầu của đề bài.
+Báo cáo này trình bày kết quả nghiên cứu và triển khai các thuật toán tìm kiếm cơ bản và nâng cao trong lĩnh vực Trí tuệ Nhân tạo. Dự án cá nhân này tập trung vào việc phân tích cơ chế hoạt động, đặc điểm lý thuyết và đánh giá hiệu quả hoạt động của các thuật toán này khi áp dụng trên bài toán kinh điển **8 ô chữ (8-Puzzle)**, một ví dụ điển hình cho bài toán tìm kiếm trạng thái. Nội dung báo cáo tóm tắt này được trình bày dựa trên cấu trúc yêu cầu của đề bài.
 
 ---
 
@@ -12,8 +12,8 @@ Các mục tiêu chính mà dự án hướng tới bao gồm:
 
 * Nắm vững **cơ chế hoạt động** và **đặc điểm lý thuyết** của các nhóm thuật toán tìm kiếm đa dạng.
 * Áp dụng thành công các thuật toán tìm kiếm vào việc giải **bài toán 8 ô chữ**.
-* **Đánh giá định lượng và định tính** hiệu suất của các thuật toán (thời gian, bộ nhớ, số bước) khi chạy trên 8 ô chữ thông qua các thực nghiệm.
-* Tổng hợp và trình bày kết quả nghiên cứu một cách **trực quan và khoa học**.
+* **Đánh giá định lượng và định tính** hiệu suất của các thuật toán (thời gian, bộ nhớ sử dụng, số lượng nút thăm) khi chạy trên 8 ô chữ thông qua các thực nghiệm.
+* Tổng hợp và trình bày kết quả nghiên cứu một cách **trực quan và khoa học** trong báo cáo này.
 
 ---
 
@@ -26,17 +26,17 @@ Phần này đi sâu vào từng nhóm thuật toán đã nghiên cứu, làm r�
 Trước khi đi vào từng thuật toán, hãy cùng định nghĩa các thành phần của bài toán 8 ô chữ dưới góc độ bài toán tìm kiếm:
 
 * **Không gian trạng thái:** Tập hợp tất cả các cấu hình (cách sắp xếp) có thể có của 8 viên gạch số và 1 ô trống trên bảng 3x3.
-* **Trạng thái ban đầu:** Cấu hình ban đầu của bảng (thường là ngẫu nhiên hoặc do người dùng nhập).
+* **Trạng thái ban đầu:** Cấu hình ban đầu của bảng (thường là ngẫu nhiên hoặc do người dùng cung cấp).
 * **Hàm chuyển trạng thái:** Các hành động di chuyển ô trống (lên, xuống, trái, phải) nếu hợp lệ, dẫn đến cấu hình bảng mới (trạng thái mới).
-* **Trạng thái đích:** Cấu hình bảng mà các viên gạch được sắp xếp theo thứ tự mong muốn (ví dụ: 1-2-3 ở hàng trên, 4-5-6 ở giữa, 7-8-trống ở dưới).
-* **Chi phí bước đi:** Chi phí để thực hiện một hành động chuyển trạng thái (thường là 1 cho mỗi nước đi).
+* **Trạng thái đích:** Cấu hình bảng mà các ô số được sắp xếp theo thứ tự mong muốn.
+* **Chi phí bước đi:** Thường là 1 cho mỗi nước đi.
 * **Lời giải:** Một chuỗi các hành động hợp lệ từ trạng thái ban đầu dẫn đến trạng thái đích. Chi phí của lời giải là tổng chi phí các bước đi (bằng độ dài chuỗi khi chi phí = 1).
 
 ---
 
 ### 🔍 2.1. Các Thuật toán Tìm kiếm không có Thông tin (Uninformed Search)
 
-Nhóm thuật toán này không sử dụng bất kỳ kiến thức bổ sung nào về mục tiêu hoặc "khoảng cách" đến đích. Chúng duyệt không gian trạng thái theo một quy tắc cố định.
+Nhóm thuật toán này tìm kiếm mà không sử dụng thông tin về đích, chỉ dựa vào cấu trúc không gian trạng thái.
 
 #### **Tìm kiếm theo chiều rộng (BFS)**
 
@@ -59,7 +59,7 @@ Nhóm thuật toán này không sử dụng bất kỳ kiến thức bổ sung n
     * **Tối ưu:** Không.
     * **Độ phức tạp thời gian:** $O(b^m)$ ( $m$ là độ sâu lớn nhất).
     * **Độ phức tạp không gian:** $O(bm)$ - ưu điểm về bộ nhớ.
-* **Áp dụng trên 8 ô chữ:** Tiết kiệm bộ nhớ, nhưng lời giải thường không tối ưu và có thể không tìm thấy đích nếu không có giới hạn/kiểm tra trạng thái lặp.
+* **Áp dụng trên 8 ô chữ:** Tiết kiệm bộ nhớ hơn BFS, nhưng lời giải thường không tối ưu và có thể mất nhiều thời gian hơn.
 
 *Xem DFS hoạt động trên 8 ô chữ:*
 ![Minh họa GIF DFS 8-Puzzle](path/to/your/dfs_animation.gif)
@@ -94,7 +94,7 @@ Nhóm thuật toán này không sử dụng bất kỳ kiến thức bổ sung n
 *So sánh hiệu suất các thuật toán Tìm kiếm không có thông tin trên bài toán 8 ô chữ:*
 ![Biểu đồ so sánh Hiệu suất Uninformed Search 8-Puzzle](path/to/your/uninformed_performance_chart.png)
 
-**Nhận xét về hiệu suất trên 8 ô chữ:** Dữ liệu thực nghiệm cho thấy **IDS** là thuật toán không có thông tin hiệu quả nhất trên 8 ô chữ. Mặc dù BFS/UCS tìm được lời giải tối ưu, yêu cầu bộ nhớ của chúng tăng lên rất nhanh với độ sâu lời giải. DFS tiết kiệm bộ nhớ nhưng thường tìm ra lời giải dài hơn đáng kể. IDS khắc phục được nhược điểm bộ nhớ của BFS mà vẫn giữ được tính tối ưu và hiệu quả thời gian tương đương.
+**Nhận xét về hiệu suất trên 8 ô chữ:** Dữ liệu thực nghiệm cho thấy **IDS** là thuật toán không có thông tin hiệu quả nhất trên 8 ô chữ. Mặc dù BFS/UCS tìm được lời giải tối ưu, yêu cầu bộ nhớ của chúng tăng lên rất nhanh với độ sâu lời giải. DFS tiết kiệm bộ nhớ nhưng lời giải thường dài hơn. IDS khắc phục được nhược điểm bộ nhớ của BFS mà vẫn giữ được tính tối ưu và hiệu quả thời gian tương đương.
 
 ---
 
@@ -106,7 +106,7 @@ Nhóm này sử dụng **Hàm Heuristic ($h(n)$)** - ước lượng chi phí t�
 
 #### **Tìm kiếm tham lam nhất (Greedy Best-First Search)**
 
-* **Cơ chế:** Luôn mở rộng nút có giá trị $h(n)$ thấp nhất.
+* **Cơ chế:** Luôn mở rộng nút mà heuristic ước lượng gần đích nhất ($h(n)$ nhỏ nhất).
 * **Đặc điểm:**
     * **Hoàn chỉnh:** Không.
     * **Tối ưu:** Không.
@@ -117,12 +117,12 @@ Nhóm này sử dụng **Hàm Heuristic ($h(n)$)** - ước lượng chi phí t�
 
 #### **Thuật toán A* (A* Search)**
 
-* **Cơ chế:** Mở rộng nút có hàm đánh giá $f(n) = g(n) + h(n)$ thấp nhất. Cân bằng giữa chi phí đã đi ($g$) và ước lượng chi phí còn lại ($h$).
+* **Cơ chế:** Mở rộng nút có hàm đánh giá $f(n) = g(n) + h(n)$ thấp nhất, cân bằng giữa chi phí đã đi ($g$) và ước lượng chi phí còn lại ($h$).
 * **Đặc điểm:**
     * **Hoàn chỉnh:** Có.
     * **Tối ưu:** Có, nếu heuristic được chấp nhận ($h(n) \le h^*(n)$). $h_1$ và $h_2$ đều được chấp nhận.
     * **Độ phức tạp thời gian/không gian:** Phụ thuộc vào chất lượng heuristic, trường hợp xấu nhất là $O(b^d)$, nhưng thường hiệu quả hơn nhiều trong thực tế.
-* **Áp dụng trên 8 ô chữ:** Là thuật toán hiệu quả nhất trong nhóm tìm kiếm trạng thái. Với heuristic **Manhattan Distance ($h_2$)** (là heuristic được chấp nhận và nhất quán mạnh mẽ cho 8 ô chữ), A* tìm được lời giải tối ưu rất nhanh chóng.
+* **Áp dụng trên 8 ô chữ:** Là thuật toán hiệu quả nhất trong nhóm tìm kiếm trạng thái. Với heuristic **Manhattan Distance ($h_2$)**, A* tìm được lời giải tối ưu rất nhanh chóng.
 
 *Xem A* hoạt động trên 8 ô chữ:*
 ![Minh họa GIF A* Search 8-Puzzle](path/to/your/a_star_animation.gif)
@@ -175,7 +175,7 @@ Giải quyết bài toán bằng cách tìm gán giá trị cho các biến sao 
 
 ### 🗺️ 2.5. Tìm kiếm trong Môi trường Phức tạp
 
-Áp dụng khi môi trường không hoàn toàn quan sát được hoặc có tính ngẫu nhiên. 8 ô chữ tiêu chuẩn là môi trường đơn giản, xác định.
+Áp dụng cho các môi trường không hoàn toàn quan sát được hoặc có tính ngẫu nhiên. 8 ô chữ tiêu chuẩn là môi trường đơn giản, xác định.
 
 * **Các kỹ thuật:** Sử dụng **Đồ thị AND-OR**, **Tìm kiếm không có quan sát**, **Tìm kiếm có quan sát một phần**.
 * **Đặc điểm:** Cần thiết cho các bài toán phức tạp hơn trong thế giới thực.
@@ -198,11 +198,11 @@ Tác nhân học cách đưa ra quyết định thông qua tương tác và nh�
 
 ## ✅ 3. Kết luận
 
-Dự án đã mang lại cái nhìn tổng quan và sâu sắc về các thuật toán tìm kiếm trong AI, đặc biệt thông qua việc áp dụng chúng vào bài toán 8 ô chữ.
+Dự án này đã mang lại cho tôi cái nhìn tổng quan và sâu sắc về các thuật toán tìm kiếm trong AI, đặc biệt thông qua việc áp dụng chúng vào bài toán 8 ô chữ.
 
-Chúng tôi đã xác nhận rằng các thuật toán tìm kiếm trạng thái như **A*** và **IDA*** (với heuristic Manhattan Distance) là những phương pháp **hiệu quả và tối ưu nhất** để giải bài toán 8 ô chữ. IDS là lựa chọn thay thế tốt trong nhóm không có thông tin. Các nhóm thuật toán khác có vai trò quan trọng nhưng phù hợp hơn với các loại bài toán khác trong lĩnh vực AI.
+Dựa trên kết quả thực nghiệm, tôi xác nhận rằng các thuật toán tìm kiếm trạng thái như **A*** và **IDA*** (với heuristic Manhattan Distance) là những phương pháp **hiệu quả và tối ưu nhất** để giải bài toán 8 ô chữ. IDS là lựa chọn thay thế tốt trong nhóm không có thông tin. Các nhóm thuật toán khác có vai trò quan trọng nhưng phù hợp hơn với các loại bài toán khác trong lĩnh vực AI.
 
-Việc thực hiện dự án này không chỉ củng cố kiến thức lý thuyết mà còn trang bị kỹ năng đánh giá hiệu suất thực tế của các thuật toán, làm nền tảng cho việc giải quyết các bài toán phức tạp hơn trong tương lai.
+Việc thực hiện dự án này không chỉ củng cố kiến thức lý thuyết của tôi mà còn trang bị kỹ năng đánh giá hiệu suất thực tế của các thuật toán, làm nền tảng cho việc giải quyết các bài toán phức tạp hơn trong tương lai.
 
 ---
 
