@@ -208,15 +208,19 @@ Việc thực hiện dự án này không chỉ củng cố kiến thức lý th
 
 ## 🧑‍💻 Tác giả
 
-* [Tên của bạn]
-* [Các thành viên khác trong nhóm (nếu có)]
+Trần Thành Trung - MSSV: 233110351
+  
+---
+
+## 👨‍🏫 Giảng viên Hướng dẫn
+
+GV: Phan Thị Huyền Trang
 
 ---
 
-## 🚀 Cấu trúc Project & Cách chạy (Nếu có mã nguồn)
+## 📚 Tài liệu Tham khảo
 
-(Phần này bạn có thể thêm vào nếu project của bạn bao gồm mã nguồn. Mô tả cấu trúc thư mục, cách cài đặt dependencies và lệnh để chạy thử các thuật toán trên 8 ô chữ.)
+* Liệt kê các tài liệu (sách, bài báo, website,...) mà bạn đã tham khảo để thực hiện dự án này.
+* Nên trình bày theo một định dạng nhất quán (ví dụ: Tên tác giả, Năm xuất bản, Tên tài liệu, Nhà xuất bản/Nguồn).
 
-Ví dụ:
 
-```markdown
