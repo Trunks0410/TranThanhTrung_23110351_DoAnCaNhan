@@ -1,10 +1,8 @@
-# ✨ ĐỒ ÁN CÁ NHÂN MÔN TRÍ TUỆ NHÂN TẠO✨
+# ✨ĐỒ ÁN CÁ NHÂN MÔN TRÍ TUỆ NHÂN TẠO✨
 
 ## 📚 Giới thiệu
 
-Chào mừng bạn đến với repository của dự án phân tích các thuật toán tìm kiếm cơ bản và nâng cao trong Trí tuệ Nhân tạo. Dự án này tập trung vào việc nghiên cứu sâu sắc, triển khai và đánh giá hiệu quả của các thuật toán này trên bài toán kinh điển **8 ô chữ (8-Puzzle)**. Đây là một bài toán tìm kiếm trạng thái tuyệt vời để minh họa và so sánh các phương pháp giải khác nhau.
-
-File README này đóng vai trò như một bản báo cáo tóm tắt về quá trình và kết quả nghiên cứu của chúng tôi.
+Báo cáo này trình bày kết quả nghiên cứu và triển khai các thuật toán tìm kiếm cơ bản và nâng cao trong lĩnh vực Trí tuệ Nhân tạo. Dự án tập trung vào việc phân tích cơ chế hoạt động, đặc điểm lý thuyết và đánh giá hiệu quả hoạt động của các thuật toán này khi áp dụng trên bài toán kinh điển **8 ô chữ (8-Puzzle)**, một ví dụ điển hình cho bài toán tìm kiếm trạng thái. Nội dung báo cáo tóm tắt này được trình bày dựa trên cấu trúc yêu cầu của đề bài.
 
 ---
 
