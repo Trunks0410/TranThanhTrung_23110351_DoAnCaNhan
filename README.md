@@ -259,7 +259,7 @@ Bài toán 8 ô chữ thường được mô hình hóa tốt nhất như bài t
 - **Ứng dụng điển hình:** Chỉ dùng cho các bài toán rất nhỏ để minh họa.
 
 *Minh họa hoạt động của Generate and Test:*
-![Minh họa GIF Generate and Test CSP](path/to/your/generate_and_test_animation.gif)
+![Minh họa GIF Generate and Test CSP](GIF/generate.gif)
 
 #### **Backtracking Search (Tìm kiếm Quay lui)**
 
@@ -275,7 +275,7 @@ Bài toán 8 ô chữ thường được mô hình hóa tốt nhất như bài t
 - **Ứng dụng điển hình:** Giải Sudoku, bài toán N hậu, xếp lịch, cấu hình hệ thống.
 
 *Minh họa hoạt động của Backtracking Search:*
-![Minh họa GIF Backtracking Search CSP](path/to/your/backtracking_animation.gif)
+![Minh họa GIF Backtracking Search CSP](GIF/backtracking.gif)
 
 #### **AC3 (Arc Consistency Algorithm 3)**
 
@@ -289,12 +289,9 @@ Bài toán 8 ô chữ thường được mô hình hóa tốt nhất như bài t
 - **Ứng dụng điển hình:** Thường được sử dụng kết hợp với Backtracking (Backtracking + AC3) để cải thiện hiệu quả.
 
 *Minh họa hoạt động của AC3:*
-![Minh họa GIF AC3 CSP](path/to/your/ac3_animation.gif)
+![Minh họa GIF AC3 CSP](GIF/ac3.gif)
 
 ---
-
-*So sánh hiệu suất các thuật toán giải CSP (trên bài toán CSP điển hình):*
-![Biểu đồ so sánh Hiệu suất CSP](path/to/your/csp_performance_chart.png)
 
 **Nhận xét về các thuật toán Tìm kiếm Ràng buộc:** Nhóm này là trọng tâm khi giải các bài toán mà bản chất là thỏa mãn ràng buộc giữa các biến. Backtracking là thuật toán tìm kiếm có hệ thống cơ bản, và AC3 là kỹ thuật tiền xử lý mạnh mẽ giúp cải thiện đáng kể hiệu quả của Backtracking bằng cách loại bỏ sớm các khả năng không khả thi. Generate and Test chỉ mang tính lý thuyết.
 
@@ -314,7 +311,7 @@ Nhóm này đề cập đến các kỹ thuật tìm kiếm và lập kế hoạ
 - **Ứng dụng điển hình:** Lập kế hoạch (Planning), chứng minh định lý tự động, chẩn đoán (ví dụ: hệ thống chuyên gia chẩn đoán bệnh dựa trên triệu chứng và kết quả xét nghiệm).
 
 *Minh họa Đồ thị AND-OR và Tìm kiếm:*
-![Minh họa GIF AND-OR Graph Search](path/to/your/and_or_graph_animation.gif)
+![Minh họa GIF AND-OR Graph Search](GIF/and_or.gif)
 
 #### **Search with No Observation (Tìm kiếm không có Quan sát)**
 
@@ -324,7 +321,7 @@ Nhóm này đề cập đến các kỹ thuật tìm kiếm và lập kế hoạ
 - **Ứng dụng điển hình:** Điều khiển thiết bị không có cảm biến, lập kế hoạch cho các hệ thống phản hồi chậm hoặc không có phản hồi.
 
 *Minh họa Tìm kiếm không có Quan sát:*
-![Minh họa GIF Search with No Observation](path/to/your/no_observation_animation.gif)
+![Minh họa GIF Search with No Observation](GIF/no.gif)
 
 #### **Search with Partial Observation (Tìm kiếm có Quan sát một phần)**
 
@@ -334,12 +331,9 @@ Nhóm này đề cập đến các kỹ thuật tìm kiếm và lập kế hoạ
 - **Ứng dụng điển hình:** Điều khiển robot với cảm biến nhiễu, chẩn đoán y tế (đưa ra xét nghiệm để thu thập thêm thông tin), lập kế hoạch trong môi trường không chắc chắn.
 
 *Minh họa Tìm kiếm có Quan sát một phần:*
-![Minh họa GIF Search with Partial Observation](path/to/your/partial_observation_animation.gif)
+![Minh họa GIF Search with Partial Observation](GIF/partial.gif)
 
 ---
-
-*So sánh các kỹ thuật Tìm kiếm trong Môi trường Phức tạp:*
-![Biểu đồ so sánh các kỹ thuật Complex Environment Search](path/to/your/complex_search_comparison.png)
 
 **Nhận xét về Tìm kiếm trong Môi trường Phức tạp:** Nhóm này giải quyết các thách thức tìm kiếm và lập kế hoạch trong thế giới thực, nơi thông tin không hoàn hảo là phổ biến. Các phương pháp này phức tạp hơn nhiều so với tìm kiếm trạng thái đơn giản như trên 8 ô chữ nhưng cần thiết cho các ứng dụng AI nâng cao.
 
@@ -371,12 +365,9 @@ Bài toán 8 ô chữ có thể được khung hóa như một bài toán RL (tr
 - **Ứng dụng điển hình:** Chơi game (ví dụ: các trò chơi Atari), điều khiển robot, quản lý tài nguyên, hệ thống khuyến nghị.
 
 *Minh họa Q-Learning:*
-![Minh họa GIF Q-Learning](path/to/your/q_learning_animation.gif)
+![Minh họa GIF Q-Learning](GIF/q_learning.gif)
 
 ---
-
-*So sánh các kỹ thuật Học tăng cường:*
-![Biểu đồ so sánh các kỹ thuật Reinforcement Learning](path/to/your/rl_comparison.png)
 
 **Nhận xét về Học tăng cường:** RL là một paradigm học máy mạnh mẽ để giải quyết các bài toán ra quyết định theo trình tự trong môi trường động. Q-Learning là một thuật toán nền tảng trong RL dựa trên giá trị. Mặc dù 8 ô chữ có thể được giải bằng Q-Learning, các thuật toán tìm kiếm trạng thái truyền thống thường hiệu quả hơn để tìm *đường đi tối ưu* trong môi trường xác định và quan sát đầy đủ như 8 ô chữ. RL tỏa sáng trong các môi trường phức tạp hơn, không xác định hoặc khi mô hình không có sẵn.
 
@@ -386,7 +377,7 @@ Bài toán 8 ô chữ có thể được khung hóa như một bài toán RL (tr
 
 Dự án này đã mang lại cho tôi cái nhìn tổng quan và sâu sắc về các thuật toán tìm kiếm trong AI, đặc biệt thông qua việc áp dụng chúng vào bài toán 8 ô chữ.
 
-Dựa trên kết quả thực nghiệm, tôi xác nhận rằng các thuật toán tìm kiếm trạng thái như **A*** và **IDA*** (với heuristic Manhattan Distance) là những phương pháp **hiệu quả và tối ưu nhất** để giải bài toán 8 ô chữ. IDS là lựa chọn thay thế tốt trong nhóm không có thông tin. Các nhóm thuật toán khác có vai trò quan trọng nhưng phù hợp hơn với các loại bài toán khác trong lĩnh vực AI.
+Dựa trên kết quả thực nghiệm, tôi xác nhận rằng các thuật toán tìm kiếm trạng thái như **A*** và **IDA*** (với heuristic Manhattan Distance) là những phương pháp **hiệu quả và tối ưu nhất** để giải bài toán 8 ô chữ. BFS là lựa chọn thay thế tốt trong nhóm không có thông tin. Các nhóm thuật toán khác có vai trò quan trọng nhưng phù hợp hơn với các loại bài toán khác trong lĩnh vực AI.
 
 Việc thực hiện dự án này không chỉ củng cố kiến thức lý thuyết của tôi mà còn trang bị kỹ năng đánh giá hiệu suất thực tế của các thuật toán, làm nền tảng cho việc giải quyết các bài toán phức tạp hơn trong tương lai.
 
