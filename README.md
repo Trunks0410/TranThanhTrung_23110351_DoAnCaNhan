@@ -385,7 +385,7 @@ Việc thực hiện dự án này không chỉ củng cố kiến thức lý th
 
 ## 🧑‍💻 Tác giả
 
-Trần Thành Trung - MSSV: 233110351
+Trần Thành Trung - MSSV: 23110351
   
 ---
 
