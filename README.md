@@ -92,7 +92,7 @@ Nhóm thuật toán này tìm kiếm mà không sử dụng thông tin về đí
 ---
 
 *So sánh hiệu suất các thuật toán Tìm kiếm không có thông tin trên bài toán 8 ô chữ:*
-![Biểu đồ so sánh Hiệu suất Uninformed Search 8-Puzzle](path/to/your/uninformed_performance_chart.png)
+![Biểu đồ so sánh Hiệu suất Uninformed Search 8-Puzzle](Image/KhongCoThongTin.png)
 
 **Nhận xét về hiệu suất trên 8 ô chữ:** Dữ liệu thực nghiệm cho thấy **IDS** là thuật toán không có thông tin hiệu quả nhất trên 8 ô chữ. Mặc dù BFS/UCS tìm được lời giải tối ưu, yêu cầu bộ nhớ của chúng tăng lên rất nhanh với độ sâu lời giải. DFS tiết kiệm bộ nhớ nhưng lời giải thường dài hơn. IDS khắc phục được nhược điểm bộ nhớ của BFS mà vẫn giữ được tính tối ưu và hiệu quả thời gian tương đương.
 
@@ -143,7 +143,7 @@ Nhóm này sử dụng **Hàm Heuristic ($h(n)$)** - ước lượng chi phí t�
 ---
 
 *So sánh hiệu suất các thuật toán Tìm kiếm có thông tin trên bài toán 8 ô chữ (ví dụ với heuristic $h_2$):*
-![Biểu đồ so sánh Hiệu suất Informed Search 8-Puzzle](path/to/your/informed_performance_chart.png)
+![Biểu đồ so sánh Hiệu suất Informed Search 8-Puzzle](Image/TKCoThongTin.png)
 
 **Nhận xét về hiệu suất trên 8 ô chữ:** Các thuật toán có thông tin, đặc biệt là **A*** và **IDA*** với heuristic **Manhattan Distance**, cho thấy hiệu quả vượt trội so với nhóm không có thông tin về tốc độ và số nút thăm trong khi vẫn đảm bảo tính tối ưu của lời giải. IDA* là giải pháp lý tưởng khi cần tối ưu cả về thời gian và bộ nhớ. Greedy Search nhanh nhưng không đáng tin cậy về tính tối ưu.
 
@@ -230,7 +230,7 @@ Bài toán 8 ô chữ có thể được xem từ góc độ này (tìm cấu h�
 ---
 
 *So sánh hiệu suất các thuật toán Tìm kiếm Cục bộ:*
-![Biểu đồ so sánh Hiệu suất Local Search](path/to/your/local_search_performance_chart.png)
+![Biểu đồ so sánh Hiệu suất Local Search](Image/CucBo.png)
 
 **Nhận xét về các thuật toán Tìm kiếm Cục bộ:** Nhóm này rất mạnh mẽ cho các bài toán tối ưu hóa khi chỉ cần tìm trạng thái tốt nhất mà không cần đường đi. Ưu điểm lớn nhất là yêu cầu bộ nhớ thấp. Thách thức chính là nguy cơ mắc kẹt ở tối ưu cục bộ, với các thuật toán như Simulated Annealing và Genetic Algorithm có cơ chế để vượt qua. Chúng ít phù hợp trực tiếp để tìm *chuỗi bước đi* giải 8 ô chữ theo cách thông thường.
 
